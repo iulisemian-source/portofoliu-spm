@@ -336,12 +336,29 @@ const emailCaptureForm = document.getElementById('emailCaptureForm');
 const closeEmailModal = document.getElementById('closeEmailModal');
 
 document.addEventListener('click', (e) => {
+  // Click pe buton Descarcă
   if (e.target.classList.contains('btn-download-case')) {
     emailCaptureModal.classList.add('active');
     emailCaptureBackdrop.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
+  
+  // Click pe card (oriunde pe card deschide modalul)
+  const caseCard = e.target.closest('.case-card');
+  if (caseCard && !e.target.classList.contains('btn-download-case')) {
+    emailCaptureModal.classList.add('active');
+    emailCaptureBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  // Click pe arrow button
+  if (e.target.closest('.case-arrow')) {
+    emailCaptureModal.classList.add('active');
+    emailCaptureBackdrop.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 });
+
 
 function closeEmailCaptureModal() {
   emailCaptureModal.classList.remove('active');
