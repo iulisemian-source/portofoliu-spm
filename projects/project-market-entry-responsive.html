@@ -1,1 +1,614 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Market Entry - Premium Case Study | SPM Grup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; overflow-x: hidden; }
+    
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* HEADER */
+    header { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 3rem 1rem; text-align: center; position: relative; overflow: hidden; margin-bottom: 2rem; }
+    header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(170, 138, 52, 0.15) 0%, transparent 70%); border-radius: 50%; }
+    
+    .header-content { position: relative; z-index: 2; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2; }
+    .subtitle { font-size: clamp(1rem, 3vw, 1.2rem); color: #aa8a34; font-weight: 600; margin-bottom: 1rem; }
+    .tagline { font-size: clamp(0.9rem, 2.5vw, 1.05rem); color: #ddd; line-height: 1.7; max-width: 700px; margin: 0 auto; }
+    
+    a.back-link { display: inline-block; color: #aa8a34; text-decoration: none; font-weight: 600; margin-bottom: 2rem; font-size: 0.95rem; }
+    a.back-link:hover { text-decoration: underline; }
+    
+    /* HEADINGS */
+    h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 1.5rem; margin-top: 2.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid #aa8a34; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.3rem); font-weight: 700; color: #1a1a1a; margin-top: 1.5rem; margin-bottom: 1rem; }
+    
+    /* EXECUTIVE SUMMARY */
+    .executive-summary { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .summary-item { background: white; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .summary-label { font-size: 0.75rem; text-transform: uppercase; color: #999; font-weight: 700; letter-spacing: 0.5px; }
+    .summary-value { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; color: #aa8a34; margin-top: 0.5rem; }
+    
+    /* CHALLENGE CARDS */
+    .challenges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .challenge-card { background: white; border: 2px solid #e0e0e0; border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 6px; transition: all 0.3s; }
+    .challenge-card:hover { border-color: #aa8a34; box-shadow: 0 8px 16px rgba(170, 138, 52, 0.1); transform: translateY(-2px); }
+    .challenge-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .challenge-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 1rem; }
+    .challenge-text { font-size: 0.9rem; color: #666; line-height: 1.6; }
+    .challenge-impact { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #999; font-weight: 600; }
+    
+    /* METHODOLOGY */
+    .methodology-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .method-card { background: white; padding: 1.2rem; border-radius: 6px; border: 1px solid #e0e0e0; }
+    .method-number { font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .method-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .method-text { font-size: 0.85rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
+    .method-tools { font-size: 0.75rem; color: #999; padding: 0.8rem; background: #f5f5f5; border-radius: 4px; border-left: 3px solid #aa8a34; }
+    
+    /* CHARTS */
+    .chart-container { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow-x: auto; }
+    .chart-title { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; }
+    .chart-subtitle { font-size: 0.8rem; color: #999; margin-bottom: 1rem; }
+    svg { width: 100%; height: auto; min-height: 250px; }
+    
+    /* INSIGHTS */
+    .insights-section { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .insight-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(170, 138, 52, 0.3); padding: 1.2rem; border-radius: 6px; backdrop-filter: blur(10px); }
+    .insight-number { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .insight-title { font-weight: 700; margin-bottom: 0.6rem; font-size: 0.9rem; }
+    .insight-text { font-size: 0.8rem; line-height: 1.5; color: #ddd; }
+    
+    /* TOOLS & FRAMEWORKS */
+    .tools-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .tool-card { background: white; padding: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .tool-name { font-weight: 700; color: #1a1a1a; margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .tool-purpose { font-size: 0.8rem; color: #666; }
+    
+    /* RISK MANAGEMENT */
+    .risk-section { border-left: 5px solid #aa8a34; padding: 1.5rem; background: #f8f8f8; border-radius: 6px; margin: 2rem 0; }
+    .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .risk-item { background: white; padding: 1rem; border-radius: 6px; }
+    .risk-label { font-weight: 700; color: #1a1a1a; margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .risk-mitigation { font-size: 0.85rem; color: #666; line-height: 1.5; }
+    
+    /* RESULTS TABLE */
+    .results-table { width: 100%; border-collapse: collapse; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; font-size: 0.9rem; }
+    .results-table thead { background: #1a1a1a; color: white; }
+    .results-table th { padding: 1rem; text-align: left; font-weight: 700; font-size: 0.85rem; border-bottom: 2px solid #aa8a34; }
+    .results-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #e0e0e0; }
+    .results-table tr:nth-child(even) { background: #f8f8f8; }
+    .results-table tr:hover { background: #f0f0f0; }
+    .metric-positive { color: #aa8a34; font-weight: 700; }
+    .metric-label { font-size: 0.75rem; color: #999; }
+    
+    /* LESSONS LEARNED */
+    .lessons-section { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .lesson-item { background: white; padding: 1.2rem; margin-bottom: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .lesson-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .lesson-text { font-size: 0.85rem; color: #666; line-height: 1.6; }
+    
+    /* QUOTE */
+    .quote-section { background: white; border-left: 5px solid #aa8a34; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .quote-text { font-size: clamp(1rem, 2vw, 1.15rem); font-style: italic; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.7; }
+    .quote-author { font-weight: 700; color: #aa8a34; font-size: 0.9rem; }
+    .quote-role { font-size: 0.8rem; color: #999; }
+    
+    /* CTA SECTION */
+    .cta-section { background: linear-gradient(135deg, #aa8a34 0%, #8b6e28 100%); color: white; padding: 2rem 1.5rem; border-radius: 8px; text-align: center; margin: 3rem 0; }
+    .cta-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-text { font-size: clamp(0.9rem, 2vw, 1.05rem); margin-bottom: 1.5rem; line-height: 1.6; }
+    .cta-btn { display: inline-block; background: #1a1a1a; color: white; padding: 0.9rem 2rem; text-decoration: none; font-weight: 700; border-radius: 6px; transition: all 0.3s; font-size: 0.95rem; border: none; cursor: pointer; }
+    .cta-btn:hover { background: #2a2a2a; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    
+    /* FOOTER */
+    footer { background: #1a1a1a; color: #ccc; padding: 2rem 1rem; text-align: center; font-size: 0.85rem; margin-top: 3rem; border-top: 2px solid #aa8a34; }
+    footer strong { color: #aa8a34; }
+    
+    /* UTILITY */
+    p { margin-bottom: 1rem; font-size: 0.95rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.6rem; color: #666; line-height: 1.6; font-size: 0.95rem; }
+    
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 1024px) {
+      .container { padding: 0 1rem; }
+      header { padding: 2.5rem 1rem; }
+      .challenges-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+      .methodology-grid { grid-template-columns: repeat(2, 1fr); }
+      .insights-grid { grid-template-columns: repeat(2, 1fr); }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .summary-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    @media (max-width: 768px) {
+      .container { padding: 0 0.8rem; }
+      header { padding: 2rem 0.8rem; margin-bottom: 1.5rem; }
+      h1 { font-size: 1.6rem; }
+      .subtitle { font-size: 1rem; }
+      h2 { font-size: 1.3rem; margin-top: 2rem; }
+      h3 { font-size: 1rem; }
+      
+      .executive-summary { padding: 1rem; margin: 1.5rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .summary-item { padding: 0.8rem; }
+      .summary-label { font-size: 0.7rem; }
+      .summary-value { font-size: 1.4rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .challenge-card { padding: 1.2rem; }
+      .challenge-title { font-size: 0.95rem; }
+      .challenge-text { font-size: 0.85rem; }
+      
+      .methodology-section { padding: 1.2rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .method-card { padding: 1rem; }
+      .method-title { font-size: 0.9rem; }
+      .method-text { font-size: 0.8rem; }
+      
+      .chart-container { padding: 1rem; }
+      svg { min-height: 200px; }
+      
+      .insights-section { padding: 1.2rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .insight-card { padding: 1rem; }
+      .insight-title { font-size: 0.85rem; }
+      .insight-text { font-size: 0.75rem; }
+      
+      .tools-section { padding: 1.2rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .tool-card { padding: 0.9rem; }
+      .tool-name { font-size: 0.85rem; }
+      .tool-purpose { font-size: 0.75rem; }
+      
+      .risk-section { padding: 1.2rem; }
+      .risk-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .risk-item { padding: 0.9rem; }
+      
+      .results-table { font-size: 0.8rem; }
+      .results-table th { padding: 0.8rem; }
+      .results-table td { padding: 0.6rem 0.8rem; }
+      
+      .lessons-section { padding: 1.2rem; }
+      .lesson-item { padding: 1rem; }
+      .lesson-title { font-size: 0.9rem; }
+      .lesson-text { font-size: 0.8rem; }
+      
+      .quote-section { padding: 1.2rem; }
+      .quote-text { font-size: 1rem; }
+      .quote-author { font-size: 0.85rem; }
+      
+      .cta-section { padding: 1.5rem 1rem; margin: 2rem 0; }
+      .cta-title { font-size: 1.4rem; }
+      .cta-text { font-size: 0.95rem; }
+      .cta-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+      
+      footer { padding: 1.5rem 1rem; font-size: 0.8rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .container { padding: 0 0.7rem; }
+      header { padding: 1.5rem 0.7rem; }
+      h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+      .subtitle { font-size: 0.9rem; }
+      .tagline { font-size: 0.85rem; }
+      a.back-link { font-size: 0.85rem; margin-bottom: 1.5rem; }
+      
+      h2 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem; padding-bottom: 0.6rem; }
+      h3 { font-size: 0.95rem; }
+      
+      .executive-summary { padding: 0.9rem; margin: 1rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .summary-item { padding: 0.7rem; }
+      .summary-label { font-size: 0.65rem; }
+      .summary-value { font-size: 1.2rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .challenge-card { padding: 1rem; border-left: 4px solid #aa8a34; }
+      .challenge-icon { font-size: 1.5rem; }
+      .challenge-title { font-size: 0.9rem; }
+      .challenge-text { font-size: 0.8rem; }
+      .challenge-impact { font-size: 0.75rem; }
+      
+      .methodology-section { padding: 1rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .method-card { padding: 0.9rem; }
+      .method-number { font-size: 1.6rem; }
+      .method-title { font-size: 0.85rem; }
+      .method-text { font-size: 0.75rem; }
+      .method-tools { font-size: 0.7rem; }
+      
+      .chart-container { padding: 0.8rem; margin: 1.5rem 0; }
+      svg { min-height: 150px; }
+      
+      .insights-section { padding: 1rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .insight-card { padding: 0.9rem; }
+      .insight-number { font-size: 1.4rem; }
+      .insight-title { font-size: 0.8rem; }
+      .insight-text { font-size: 0.7rem; }
+      
+      .tools-section { padding: 1rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .tool-card { padding: 0.8rem; }
+      
+      .risk-section { padding: 1rem; }
+      .risk-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .risk-item { padding: 0.8rem; }
+      .risk-label { font-size: 0.85rem; }
+      
+      .results-table { font-size: 0.75rem; }
+      .results-table th, .results-table td { padding: 0.5rem; }
+      
+      .lessons-section { padding: 1rem; }
+      .lesson-item { padding: 0.9rem; margin-bottom: 0.8rem; }
+      .lesson-title { font-size: 0.85rem; }
+      
+      .quote-section { padding: 1rem; }
+      .quote-text { font-size: 0.9rem; }
+      
+      .cta-section { padding: 1.2rem 0.8rem; margin: 1.5rem 0; }
+      .cta-title { font-size: 1.2rem; }
+      .cta-text { font-size: 0.9rem; }
+      .cta-btn { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+      
+      footer { padding: 1.2rem 0.7rem; font-size: 0.75rem; }
+      
+      p, li { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
 
+<a href="/" class="back-link">← Înapoi la Portofoliu</a>
+
+<header>
+  <div class="header-content">
+    <h1>Intrare pe Piața Românească</h1>
+    <div class="subtitle">Pentru o Companie SaaS Americană</div>
+    <p class="tagline">Cum o companie SaaS din SUA a reușit să se extindă pe piața românească, generând 2,8 milioane de euro în primul an, cu strategie calculată și risc minim.</p>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="executive-summary">
+  <h2 style="margin-top: 0; border: none; color: #1a1a1a;">Executive Summary</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="summary-label">Year 1 Revenue</div>
+      <div class="summary-value">2.8M EUR</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Clienți Achiziționați</div>
+      <div class="summary-value">85</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">vs Target</div>
+      <div class="summary-value">+112%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">LTV/CAC</div>
+      <div class="summary-value">8.2x</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">ACL</div>
+      <div class="summary-value">32.9K EUR</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Time to Market</div>
+      <div class="summary-value">5 Luni</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<h2>Contextul Proiectului</h2>
+<p>O companie SaaS americană de colaborare, lider pe piețele din Statele Unite și Marea Britanie cu 12 milioane de utilizatori și 5 milioane de euro ARR, se confruntă cu provocarea de a se extinde la nivel internațional. Piața românească reprezintă o oportunitate nemapată, însă necesită o strategie diferită față de modelul de succes din Statele Unite și Marea Britanie.</p>
+
+<!-- DEEP DIVE CHALLENGES -->
+<h2>Provocări Strategice Profunde</h2>
+
+<div class="challenges-grid">
+  <div class="challenge-card">
+    <div class="challenge-icon">📊</div>
+    <div class="challenge-title">Validarea Dimensiunii Pieței (TAM)</div>
+    <div class="challenge-text">Estimările leadership-ului privind mărimea pieței românești variază semnificativ, de la 50M EUR la 200M EUR. Necesar: validare prin multiple metode (bottom-up, top-down, SAM/SOM analysis) pentru a determina real opportunity.</div>
+    <div class="challenge-impact">Impact: Diferența între 50M și 200M TAM determina go-to-market strategy și allocation resurselor</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">🎯</div>
+    <div class="challenge-title">Incertitudinea Canalului Go-To-Market</div>
+    <div class="challenge-text">Strategia de succes din US-UK bazată pe self-service SaaS nu se traduce direct în România. Procesul de decizie e diferit, bureaucrația mai mare, necesită relații și trust. Care e mixul optim: direct sales vs partnerships vs resellers?</div>
+    <div class="challenge-impact">Impact: Greșeala în GTM selection poate consuma 6+ luni și milioane EUR fără rezultate</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">🌍</div>
+    <div class="challenge-title">Diferențe Culturale și de Piață</div>
+    <div class="challenge-text">Comportament de cumpărare, CIC, preferințe de comunicare, pricing sensitivity, competitive landscape - total diferit de piață. Nu putem transpune o strategie de marketing și vânzări direct din US.</div>
+    <div class="challenge-impact">Impact: Marketing campaigns care funcționează în US pot fi complet inefective (și contraproductive) în România</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">🤝</div>
+    <div class="challenge-title">Lipsa Relațiilor și Partnershipelor</div>
+    <div class="challenge-text">Compania nu are relații cu key opinion leaders, agenții, consultanți, integratori din România. Fără network local, vânzări directe sunt 10x mai greu și 10x mai scumpe.</div>
+    <div class="challenge-impact">Impact: Necesar 6-12 luni pentru a construi credibilitate și network local</div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<section class="methodology-section">
+  <h2 style="color: #1a1a1a; border-bottom-color: #1a1a1a; margin-top: 0;">Metodologie: 4 Piloni de Strategie</h2>
+  
+  <div class="methodology-grid">
+    <div class="method-card">
+      <div class="method-number">1</div>
+      <div class="method-title">Market Research & TAM Validation</div>
+      <div class="method-text">Am condus research pe 3 dimensiuni: industry reports (IDC, Gartner), customer interviews (40+ interviews cu CIO/CTOs), competitor mapping (15+ competitors analyzed). Rezultat: TAM validat la 120M EUR (vs estimate inicial de 150M).</div>
+      <div class="method-tools">Tools: Crunchbase, Pitchbook, LinkedIn Sales Navigator, survey tools</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">2</div>
+      <div class="method-title">GTM Strategy Design</div>
+      <div class="method-text">Am evaluat 4 GTM modele: direct sales, self-service, partnerships, hybrid. Hybrid model cu focus pe partnerships și key account direct sales a ieșit ca optimal. Rationale: low-cost customer acquisition + credibility boost.</div>
+      <div class="method-tools">Tools: Porter Five Forces, GTM frameworks, pricing models</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">3</div>
+      <div class="method-title">Localization & Positioning</div>
+      <div class="method-text">Product translation, marketing messaging localization, pricing adjustment (Romania pricing = 65% din US price), sales collateral creation în limba română. Positioning: "Enterprise collaboration tool for growing Romanian tech companies".</div>
+      <div class="method-tools">Tools: Figma, Transifex, Slack integrations</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">4</div>
+      <div class="method-title">Execution & Launch Plan</div>
+      <div class="method-text">Hiring local team (2 sales reps, 1 customer success manager), partnership agreements cu 8 key resellers, paid acquisition campaigns (LinkedIn, Google), PR strategy (tech press). Launch event în București cu 200 invitees.</div>
+      <div class="method-tools">Tools: HubSpot CRM, LinkedIn Ads, Google Analytics, Calendly</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<div class="chart-container">
+  <h3 class="chart-title">1. TAM Breakdown - Market Sizing</h3>
+  <p class="chart-subtitle">Piața colaborării în România: segment distribution</p>
+  <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="300" fill="#f8f8f8"/>
+    <circle cx="180" cy="150" r="100" fill="#aa8a34" opacity="0.9"/>
+    <circle cx="280" cy="120" r="80" fill="#aa8a34" opacity="0.7"/>
+    <circle cx="300" cy="180" r="70" fill="#aa8a34" opacity="0.5"/>
+    <circle cx="250" cy="240" r="60" fill="#aa8a34" opacity="0.3"/>
+    <text x="180" y="150" font-size="14" font-weight="bold" text-anchor="middle" fill="white" dominant-baseline="middle">Enterprise 45M</text>
+    <text x="280" y="120" font-size="12" font-weight="bold" text-anchor="middle" fill="white" dominant-baseline="middle">Mid-Market 35M</text>
+    <text x="300" y="180" font-size="11" text-anchor="middle" fill="white" dominant-baseline="middle">SMB 25M</text>
+    <text x="250" y="240" font-size="10" text-anchor="middle" fill="white" dominant-baseline="middle">Startup 15M</text>
+    <text x="250" y="290" font-size="11" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Total TAM: 120M EUR</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title">2. GTM Strategy Distribution</h3>
+  <p class="chart-subtitle">Channel mix pentru customer acquisition</p>
+  <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="250" fill="#f8f8f8"/>
+    <rect x="30" y="50" width="80" height="150" fill="#aa8a34"/>
+    <rect x="130" y="80" width="80" height="120" fill="#aa8a34" opacity="0.8"/>
+    <rect x="230" y="100" width="80" height="100" fill="#aa8a34" opacity="0.6"/>
+    <rect x="330" y="140" width="80" height="60" fill="#aa8a34" opacity="0.4"/>
+    <text x="70" y="220" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="bold">Partnerships 45%</text>
+    <text x="170" y="220" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="bold">Direct Sales 30%</text>
+    <text x="270" y="220" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="bold">Paid Ads 15%</text>
+    <text x="370" y="220" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="bold">Organic 10%</text>
+    <text x="70" y="30" font-size="12" text-anchor="middle" fill="#aa8a34" font-weight="bold">38</text>
+    <text x="170" y="30" font-size="12" text-anchor="middle" fill="#aa8a34" font-weight="bold">26</text>
+    <text x="270" y="30" font-size="12" text-anchor="middle" fill="#aa8a34" font-weight="bold">13</text>
+    <text x="370" y="30" font-size="12" text-anchor="middle" fill="#aa8a34" font-weight="bold">8</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title">3. Year 1 Revenue Growth Trajectory</h3>
+  <p class="chart-subtitle">Monthly recurring revenue evolution</p>
+  <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="280" fill="#f8f8f8"/>
+    <line x1="50" y1="230" x2="450" y2="230" stroke="#e0e0e0" stroke-width="1"/>
+    <polyline points="50,220 80,210 110,190 140,160 170,130 200,100 230,70 260,50 290,40 320,35 350,32 380,30 410,28 440,25" stroke="#aa8a34" stroke-width="3" fill="none"/>
+    <circle cx="50" cy="220" r="4" fill="#aa8a34"/>
+    <circle cx="440" cy="25" r="4" fill="#aa8a34"/>
+    <text x="25" y="235" font-size="10" fill="#666">0K</text>
+    <text x="20" y="35" font-size="10" fill="#666">250K</text>
+    <text x="40" y="250" font-size="9" fill="#666">M1</text>
+    <text x="410" y="250" font-size="9" fill="#666">M12</text>
+    <text x="250" y="10" font-size="11" font-weight="bold" text-anchor="middle" fill="#1a1a1a">MRR: 12K EUR → 233K EUR</text>
+  </svg>
+</div>
+
+<!-- RESULTS TABLE -->
+<h2>Rezultate Detaliate</h2>
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>Metrica</th>
+      <th>Ținta</th>
+      <th>Realizat</th>
+      <th>Differență</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Year 1 Revenue</strong></td>
+      <td>2.5M EUR</td>
+      <td><span class="metric-positive">2.8M EUR</span></td>
+      <td><span class="metric-positive">+12%</span></td>
+    </tr>
+    <tr>
+      <td><strong>Clienți Achiziționați</strong></td>
+      <td>75</td>
+      <td><span class="metric-positive">85</span></td>
+      <td><span class="metric-positive">+13%</span></td>
+    </tr>
+    <tr>
+      <td><strong>Average Contract Value</strong></td>
+      <td>28K EUR</td>
+      <td><span class="metric-positive">32.9K EUR</span></td>
+      <td><span class="metric-positive">+18%</span></td>
+    </tr>
+    <tr>
+      <td><strong>LTV/CAC Ratio</strong></td>
+      <td>6x</td>
+      <td><span class="metric-positive">8.2x</span></td>
+      <td><span class="metric-positive">+37%</span></td>
+    </tr>
+    <tr>
+      <td><strong>Time to First Revenue</strong></td>
+      <td>6 luni</td>
+      <td><span class="metric-positive">5 luni</span></td>
+      <td><span class="metric-positive">-17%</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- STRATEGIC INSIGHTS -->
+<section class="insights-section">
+  <h2 style="color: white; border-bottom-color: #aa8a34; margin-top: 0;">8 Strategic Insights</h2>
+  
+  <div class="insights-grid">
+    <div class="insight-card">
+      <div class="insight-number">1</div>
+      <div class="insight-title">TAM Validation</div>
+      <div class="insight-text">Validarea pieței din start a economisit 3 luni și milioane EUR. Am identificat că real addressable market e mai mic decât planning inițial, dar mai valuable.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">2</div>
+      <div class="insight-title">Partnerships Win</div>
+      <div class="insight-text">Partneriatele au generat 45% din clienți cu CAC de 6K EUR (vs 15K EUR pentru direct sales). Lecția: în piețe "cold", partnerships sunt 3x mai eficiente.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">3</div>
+      <div class="insight-title">Localization Critical</div>
+      <div class="insight-text">Launch-ul în limba română + pricing local + culturally adapted messaging a crescut conversion cu 45%. Translation nu e suficient - trebuie full cultural adaptation.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">4</div>
+      <div class="insight-title">Local Team Magic</div>
+      <div class="insight-text">Hiring team local a schimbat totul. Team local-ul înțelege nuanțe culturale și poate executa rapid. Lecția: hire local, early.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">5</div>
+      <div class="insight-title">Pricing Matters</div>
+      <div class="insight-text">Am testat 3 modele de pricing. Model cu 3 tiers a ieșit optimal - 45% din clienți au ales mid-tier. Greșeala: să nu testezi multiple modele.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">6</div>
+      <div class="insight-title">Content Local</div>
+      <div class="insight-text">Blog posts în limba română + webinare au generat 8% din clienți (organic). Budget minimal, impact enorm.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">7</div>
+      <div class="insight-title">Enterprise Timing</div>
+      <div class="insight-text">Enterprise deals au luat 4-6 luni (vs 2-3 luni plan). Lecția: budget more time pentru enterprise în market-entry scenario.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">8</div>
+      <div class="insight-title">Customer Success</div>
+      <div class="insight-text">Investing în onboarding a redus churn la 2.1% (vs 5% target). Retention > growth pentru unit economics.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & FRAMEWORKS -->
+<section class="tools-section">
+  <h2 style="color: #1a1a1a; margin-top: 0;">Tools & Frameworks Utilizate</h2>
+  <p>Iată ecosystem-ul de tools și frameworks care au permis strategia de market entry calculată:</p>
+  
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-name">Crunchbase</div>
+      <div class="tool-purpose">Market research & competitor mapping</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">HubSpot CRM</div>
+      <div class="tool-purpose">Pipeline management & tracking</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Porter Five Forces</div>
+      <div class="tool-purpose">Competitive analysis</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">TAM/SAM/SOM</div>
+      <div class="tool-purpose">Market sizing & validation</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">GTM Framework</div>
+      <div class="tool-purpose">Go-to-market strategy design</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Unit Economics</div>
+      <div class="tool-purpose">CAC, LTV, profitability tracking</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">LinkedIn Ads</div>
+      <div class="tool-purpose">Paid customer acquisition</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Google Analytics</div>
+      <div class="tool-purpose">Performance tracking</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-text">"SPM Grup a transformat piața românească din o întrebare mare de risc în strategie calculată și executable. Rezultatele au depășit expectations."</div>
+  <div class="quote-author">CEO, SaaS Platform (US)</div>
+  <div class="quote-role">Post-Launch Interview</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-title">Interesat de o Strategie Market Entry?</div>
+  <div class="cta-text">Avem proven framework pentru market entry calculat, data-driven, cu risc minim și rezultate măsurabile.</div>
+  <a href="tel:+40756775675" class="cta-btn">Contactează-ne Acum</a>
+</div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 <strong>SPM Grup</strong> | Transformări Strategice Premium</p>
+  <p>hello@spmgrup.ro | +40 756 775 675</p>
+</footer>
+
+</body>
+</html>
