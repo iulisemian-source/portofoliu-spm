@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>B2B Website Strategy - Premium Case Study | SPM Grup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; overflow-x: hidden; }
+    
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* LANGUAGE TOGGLE */
+    .language-toggle { position: fixed; top: 1rem; right: 1rem; z-index: 1000; background: white; border: 2px solid #aa8a34; border-radius: 50px; padding: 0.5rem 0.5rem; display: flex; gap: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .lang-btn { padding: 0.6rem 1.2rem; border: none; background: transparent; color: #1a1a1a; font-weight: 600; cursor: pointer; border-radius: 40px; transition: all 0.3s; font-size: 0.85rem; }
+    .lang-btn.active { background: #aa8a34; color: white; }
+    .lang-btn:hover { background: #f0f0f0; }
+    .lang-btn.active:hover { background: #aa8a34; }
+    
+    /* HEADER */
+    header { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 3rem 1rem; text-align: center; position: relative; overflow: hidden; margin-bottom: 2rem; }
+    header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(170, 138, 52, 0.15) 0%, transparent 70%); border-radius: 50%; }
+    
+    .header-content { position: relative; z-index: 2; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2; }
+    .subtitle { font-size: clamp(1rem, 3vw, 1.2rem); color: #aa8a34; font-weight: 600; margin-bottom: 1rem; }
+    .tagline { font-size: clamp(0.9rem, 2.5vw, 1.05rem); color: #ddd; line-height: 1.7; max-width: 700px; margin: 0 auto; }
+    
+    a.back-link { display: inline-block; color: #aa8a34; text-decoration: none; font-weight: 600; margin-bottom: 2rem; font-size: 0.95rem; }
+    a.back-link:hover { text-decoration: underline; }
+    
+    /* HEADINGS */
+    h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 1.5rem; margin-top: 2.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid #aa8a34; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.3rem); font-weight: 700; color: #1a1a1a; margin-top: 1.5rem; margin-bottom: 1rem; }
+    
+    /* EXECUTIVE SUMMARY */
+    .executive-summary { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .summary-item { background: white; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .summary-label { font-size: 0.75rem; text-transform: uppercase; color: #999; font-weight: 700; letter-spacing: 0.5px; }
+    .summary-value { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; color: #aa8a34; margin-top: 0.5rem; }
+    
+    /* CHALLENGE CARDS */
+    .challenges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .challenge-card { background: white; border: 2px solid #e0e0e0; border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 6px; transition: all 0.3s; }
+    .challenge-card:hover { border-color: #aa8a34; box-shadow: 0 8px 16px rgba(170, 138, 52, 0.1); transform: translateY(-2px); }
+    .challenge-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .challenge-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 1rem; }
+    .challenge-text { font-size: 0.9rem; color: #666; line-height: 1.6; }
+    .challenge-impact { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #999; font-weight: 600; }
+    
+    /* METHODOLOGY */
+    .methodology-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .method-card { background: white; padding: 1.2rem; border-radius: 6px; border: 1px solid #e0e0e0; }
+    .method-number { font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .method-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .method-text { font-size: 0.85rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
+    .method-tools { font-size: 0.75rem; color: #999; padding: 0.8rem; background: #f5f5f5; border-radius: 4px; border-left: 3px solid #aa8a34; }
+    
+    /* CHARTS */
+    .chart-container { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow-x: auto; }
+    .chart-title { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; }
+    .chart-subtitle { font-size: 0.8rem; color: #999; margin-bottom: 1rem; }
+    svg { width: 100%; height: auto; min-height: 250px; }
+    
+    /* INSIGHTS */
+    .insights-section { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .insight-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(170, 138, 52, 0.3); padding: 1.2rem; border-radius: 6px; backdrop-filter: blur(10px); }
+    .insight-number { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .insight-title { font-weight: 700; margin-bottom: 0.6rem; font-size: 0.9rem; }
+    .insight-text { font-size: 0.8rem; line-height: 1.5; color: #ddd; }
+    
+    /* TOOLS & FRAMEWORKS */
+    .tools-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .tool-card { background: white; padding: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .tool-name { font-weight: 700; color: #1a1a1a; margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .tool-purpose { font-size: 0.8rem; color: #666; }
+    
+    /* RESULTS TABLE */
+    .results-table { width: 100%; border-collapse: collapse; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; font-size: 0.9rem; }
+    .results-table thead { background: #1a1a1a; color: white; }
+    .results-table th { padding: 1rem; text-align: left; font-weight: 700; font-size: 0.85rem; border-bottom: 2px solid #aa8a34; }
+    .results-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #e0e0e0; }
+    .results-table tr:nth-child(even) { background: #f8f8f8; }
+    .results-table tr:hover { background: #f0f0f0; }
+    .metric-positive { color: #aa8a34; font-weight: 700; }
+    
+    /* LESSONS LEARNED */
+    .lessons-section { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .lesson-item { background: white; padding: 1.2rem; margin-bottom: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .lesson-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .lesson-text { font-size: 0.85rem; color: #666; line-height: 1.6; }
+    
+    /* QUOTE */
+    .quote-section { background: white; border-left: 5px solid #aa8a34; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .quote-text { font-size: clamp(1rem, 2vw, 1.15rem); font-style: italic; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.7; }
+    .quote-author { font-weight: 700; color: #aa8a34; font-size: 0.9rem; }
+    .quote-role { font-size: 0.8rem; color: #999; }
+    
+    /* CTA SECTION */
+    .cta-section { background: linear-gradient(135deg, #aa8a34 0%, #8b6e28 100%); color: white; padding: 2rem 1.5rem; border-radius: 8px; text-align: center; margin: 3rem 0; }
+    .cta-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-text { font-size: clamp(0.9rem, 2vw, 1.05rem); margin-bottom: 1.5rem; line-height: 1.6; }
+    .cta-btn { display: inline-block; background: #1a1a1a; color: white; padding: 0.9rem 2rem; text-decoration: none; font-weight: 700; border-radius: 6px; transition: all 0.3s; font-size: 0.95rem; border: none; cursor: pointer; }
+    .cta-btn:hover { background: #2a2a2a; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    
+    /* FOOTER */
+    footer { background: #1a1a1a; color: #ccc; padding: 2rem 1rem; text-align: center; font-size: 0.85rem; margin-top: 3rem; border-top: 2px solid #aa8a34; }
+    footer strong { color: #aa8a34; }
+    
+    /* UTILITY */
+    p { margin-bottom: 1rem; font-size: 0.95rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.6rem; color: #666; line-height: 1.6; font-size: 0.95rem; }
+    
+    .hidden { display: none; }
+    
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 1024px) {
+      .language-toggle { top: 0.8rem; right: 0.8rem; }
+      .challenges-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+      .methodology-grid { grid-template-columns: repeat(2, 1fr); }
+      .insights-grid { grid-template-columns: repeat(2, 1fr); }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .summary-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    @media (max-width: 768px) {
+      .language-toggle { top: 0.8rem; right: 0.8rem; padding: 0.4rem 0.4rem; }
+      .lang-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+      .container { padding: 0 0.8rem; }
+      header { padding: 2rem 0.8rem; margin-bottom: 1.5rem; margin-top: 3rem; }
+      h1 { font-size: 1.6rem; }
+      .subtitle { font-size: 1rem; }
+      h2 { font-size: 1.3rem; margin-top: 2rem; }
+      h3 { font-size: 1rem; }
+      
+      .executive-summary { padding: 1rem; margin: 1.5rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .summary-item { padding: 0.8rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .methodology-section { padding: 1.2rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 1rem; }
+      
+      .chart-container { padding: 1rem; }
+      svg { min-height: 200px; }
+      
+      .insights-section { padding: 1.2rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 1rem; }
+      
+      .tools-section { padding: 1.2rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 1rem; }
+      
+      .results-table { font-size: 0.8rem; }
+      .results-table th { padding: 0.8rem; }
+      .results-table td { padding: 0.6rem 0.8rem; }
+      
+      .lessons-section { padding: 1.2rem; }
+      .lesson-item { padding: 1rem; }
+      
+      .quote-section { padding: 1.2rem; }
+      .quote-text { font-size: 1rem; }
+      
+      .cta-section { padding: 1.5rem 1rem; margin: 2rem 0; }
+      .cta-title { font-size: 1.4rem; }
+      .cta-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+      
+      footer { padding: 1.5rem 1rem; font-size: 0.8rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .language-toggle { top: 0.6rem; right: 0.6rem; padding: 0.3rem 0.3rem; }
+      .lang-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+      .container { padding: 0 0.7rem; }
+      header { padding: 1.5rem 0.7rem; margin-top: 2.5rem; }
+      h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+      .subtitle { font-size: 0.9rem; }
+      .tagline { font-size: 0.85rem; }
+      a.back-link { font-size: 0.85rem; margin-bottom: 1.5rem; }
+      
+      h2 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem; padding-bottom: 0.6rem; }
+      h3 { font-size: 0.95rem; }
+      
+      .executive-summary { padding: 0.9rem; margin: 1rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .summary-item { padding: 0.7rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .challenge-card { padding: 1rem; }
+      .challenge-title { font-size: 0.9rem; }
+      .challenge-text { font-size: 0.8rem; }
+      
+      .methodology-section { padding: 1rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .method-card { padding: 0.9rem; }
+      .method-number { font-size: 1.6rem; }
+      .method-title { font-size: 0.85rem; }
+      .method-text { font-size: 0.75rem; }
+      .method-tools { font-size: 0.7rem; }
+      
+      .chart-container { padding: 0.8rem; margin: 1.5rem 0; }
+      svg { min-height: 150px; }
+      
+      .insights-section { padding: 1rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .insight-card { padding: 0.9rem; }
+      .insight-number { font-size: 1.4rem; }
+      .insight-title { font-size: 0.8rem; }
+      .insight-text { font-size: 0.7rem; }
+      
+      .tools-section { padding: 1rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .tool-card { padding: 0.8rem; }
+      
+      .results-table { font-size: 0.75rem; }
+      .results-table th, .results-table td { padding: 0.5rem; }
+      
+      .lessons-section { padding: 1rem; }
+      .lesson-item { padding: 0.9rem; margin-bottom: 0.8rem; }
+      .lesson-title { font-size: 0.85rem; }
+      
+      .quote-section { padding: 1rem; }
+      .quote-text { font-size: 0.9rem; }
+      
+      .cta-section { padding: 1.2rem 0.8rem; margin: 1.5rem 0; }
+      .cta-title { font-size: 1.2rem; }
+      .cta-text { font-size: 0.9rem; }
+      .cta-btn { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+      
+      footer { padding: 1.2rem 0.7rem; font-size: 0.75rem; }
+      p, li { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="language-toggle">
+  <button class="lang-btn active" data-lang="ro" onclick="switchLanguage('ro')">RO</button>
+  <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+</div>
+
+<a href="/" class="back-link" data-key="backLink">← Back to Portfolio</a>
+
+<header>
+  <div class="header-content">
+    <h1 data-key="title">B2B Website Transformation and Lead Generation</h1>
+    <div class="subtitle" data-key="subtitle">For a Technology Services Company</div>
+    <p class="tagline" data-key="tagline">How we redesigned and optimized a B2B website to generate 250% more qualified leads in 8 months, transforming 2,400 annual leads into 8,400, with 45% conversion rate to proposals.</p>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="executive-summary">
+  <h2 style="margin-top: 0; border: none; color: #1a1a1a;" data-key="executiveSummary">Executive Summary</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="summary-label" data-key="leadGrowth">Lead Growth</div>
+      <div class="summary-value">+250%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="monthlyLeads">Monthly Leads</div>
+      <div class="summary-value">700</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="qualityScore">Quality Score</div>
+      <div class="summary-value">8.2/10</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="leadToProposal">Lead to Proposal</div>
+      <div class="summary-value">45%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="avgProjectValue">Avg Project Value</div>
+      <div class="summary-value">€78K</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="timeline">Timeline</div>
+      <div class="summary-value">8 Months</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<h2 data-key="contextTitle">Project Context</h2>
+<p data-key="contextText">A mid-sized technology services company with strong delivery capabilities and 15 years in business struggled with lead generation and sales pipeline. Website was outdated, unclear positioning, weak service differentiation, minimal content marketing. Sales team was frustrated with lack of qualified inbound leads—70% of new business came from referrals and cold outreach. Challenge: transform website into lead generation engine while maintaining brand credibility and showcasing expertise to attract better-quality prospects.</p>
+
+<!-- DEEP DIVE CHALLENGES -->
+<h2 data-key="challengesTitle">Deep Strategic Challenges</h2>
+
+<div class="challenges-grid">
+  <div class="challenge-card">
+    <div class="challenge-icon">🌐</div>
+    <div class="challenge-title" data-key="challenge1Title">Outdated Website and Poor User Experience</div>
+    <div class="challenge-text" data-key="challenge1Text">Website design dated to 2015, slow load times, not mobile-friendly, unclear navigation. Visitors couldn't quickly understand services or find contact information. Bounce rate: 65%. Time on site: 42 seconds. Conversion to inquiry: 0.8%.</div>
+    <div class="challenge-impact" data-key="challenge1Impact">Impact: 65% of visitors leave without taking action, generating zero leads</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">🎯</div>
+    <div class="challenge-title" data-key="challenge2Title">Weak Service Differentiation and Unclear Positioning</div>
+    <div class="challenge-text" data-key="challenge2Text">Services described generically: \"Technology consulting, software development, IT services.\" No clear why customers should choose this company over competitors. No ROI messaging. No case studies or proof of results. Positioning was: \"We do technology stuff\" not \"We deliver €5M+ in cumulative client value annually through strategic tech implementation.\"</div>
+    <div class="challenge-impact" data-key="challenge2Impact">Impact: Prospects can't differentiate, commodity pricing pressure, long sales cycles</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">📝</div>
+    <div class="challenge-title" data-key="challenge3Title">Zero Content Marketing and Thought Leadership</div>
+    <div class="challenge-text" data-key="challenge3Text">No blog, no whitepapers, no case studies, no industry insights. Company had 15 years of expertise but wasn't sharing knowledge. Competitors owned search results for \"technology consulting best practices,\" \"software architecture,\" etc. SEO traffic: 200 monthly visitors (organic). Inbound lead quality: very low—mostly tire-kickers.</div>
+    <div class="challenge-impact" data-key="challenge3Impact">Impact: No inbound qualified leads; reliance on outbound sales (expensive, low conversion)</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">📊</div>
+    <div class="challenge-title" data-key="challenge4Title">No Lead Nurturing or Marketing Automation</div>
+    <div class="challenge-text" data-key="challenge4Text">Inquiry forms captured leads, but no automated follow-up. Leads weren't segmented, qualified, or nurtured. Sales team received bulk emails with no context. No lead scoring. 60% of leads never received response within 24 hours. Result: lead quality deteriorated; prospects moved to competitors who responded faster.</div>
+    <div class="challenge-impact" data-key="challenge4Impact">Impact: High lead abandonment; weak pipeline; sales team blaming marketing</div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<section class="methodology-section">
+  <h2 style="color: #1a1a1a; border-bottom-color: #1a1a1a; margin-top: 0;" data-key="methodologyTitle">Methodology: 4 Pillars of B2B Website Strategy</h2>
+  
+  <div class="methodology-grid">
+    <div class="method-card">
+      <div class="method-number">1</div>
+      <div class="method-title" data-key="method1Title">Website Redesign and UX Optimization</div>
+      <div class="method-text" data-key="method1Text">Complete website redesign: modern design, mobile-first responsive, 40% faster load time (4.2s → 2.1s), clear navigation, prominent CTAs. New homepage: clear value prop above-the-fold, client logos, key services highlighted, testimonials, easy contact. Result: bounce rate 65% → 38%, time on site 42s → 3m 15s, conversion to inquiry 0.8% → 2.1%.</div>
+      <div class="method-tools">Tools: Figma, Webflow, GTmetrix, user testing, heatmaps</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">2</div>
+      <div class="method-title" data-key="method2Title">Strategic Positioning and Service Differentiation</div>
+      <div class="method-text" data-key="method2Text">Researched buyer personas and competitive positioning. Repositioned company: \"Strategic technology partner for mid-market growth companies\" not \"technology services vendor.\" Highlighted outcomes: faster time-to-market, 30% cost savings, measurable ROI. Created 3 service verticals: Digital Transformation, Enterprise Solutions, Custom Development. Each with specific ROI messaging and target buyer profiles.</div>
+      <div class="method-tools">Tools: Positioning framework, buyer interviews, competitive analysis, messaging brief</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">3</div>
+      <div class="method-title" data-key="method3Title">Content Marketing and Thought Leadership Program</div>
+      <div class="method-text" data-key="method3Text">Created comprehensive content library: 40 blog posts (SEO-optimized), 8 case studies (deep dives showing ROI), 5 whitepapers (industry research), webinar series (expert interviews). Topics: digital transformation ROI, enterprise architecture patterns, software delivery best practices. Result: 200 monthly organic visitors → 2,800 monthly. Organic leads: 50 → 420 monthly.</div>
+      <div class="method-tools">Tools: SEMrush, Ahrefs, WordPress, HubSpot, content distribution</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">4</div>
+      <div class="method-title" data-key="method4Title">Lead Nurturing and Marketing Automation</div>
+      <div class="method-text" data-key="method4Text">Implemented HubSpot for lead management, scoring, and automation. Leads automatically routed to sales when \"MQL\" (Marketing Qualified Lead) threshold hit. Automated email nurture sequences: 3 sequences based on service interest. Lead scoring model: company size, industry, engagement level, fit. Result: 80% of leads received contact within 2 hours. Conversion to proposal: 35% → 45%.</div>
+      <div class="method-tools">Tools: HubSpot, email marketing, lead scoring, CRM integration</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<div class="chart-container">
+  <h3 class="chart-title" data-key="chart1Title">1. Monthly Lead Volume Growth</h3>
+  <p class="chart-subtitle" data-key="chart1Subtitle">Lead generation by source over 8-month period</p>
+  <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="280" fill="#f8f8f8"/>
+    <line x1="50" y1="230" x2="450" y2="230" stroke="#e0e0e0" stroke-width="1"/>
+    <text x="25" y="235" font-size="10" fill="#666">0</text>
+    <text x="15" y="135" font-size="10" fill="#666">350</text>
+    <text x="10" y="35" font-size="10" fill="#666">700</text>
+    <polyline points="50,210 100,190 150,160 200,120 250,80 300,60 350,40 400,35 450,30" stroke="#aa8a34" stroke-width="3" fill="none"/>
+    <circle cx="50" cy="210" r="4" fill="#aa8a34"/>
+    <circle cx="450" cy="30" r="4" fill="#aa8a34"/>
+    <text x="50" y="250" font-size="9" fill="#666">M1</text>
+    <text x="430" y="250" font-size="9" fill="#666">M8</text>
+    <text x="250" y="15" font-size="11" font-weight="bold" text-anchor="middle" fill="#1a1a1a" data-key="leadTimeline">200 → 700 leads/month</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title" data-key="chart2Title">2. Lead Source Distribution</h3>
+  <p class="chart-subtitle" data-key="chart2Subtitle">Where qualified leads come from (8-month average)</p>
+  <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="250" fill="#f8f8f8"/>
+    <rect x="40" y="60" width="90" height="140" fill="#aa8a34" opacity="0.9"/>
+    <rect x="160" y="100" width="70" height="100" fill="#aa8a34" opacity="0.8"/>
+    <rect x="260" y="120" width="60" height="80" fill="#aa8a34" opacity="0.7"/>
+    <rect x="360" y="150" width="50" height="50" fill="#aa8a34" opacity="0.6"/>
+    <text x="85" y="135" font-size="12" font-weight="bold" text-anchor="middle" fill="white">43%</text>
+    <text x="85" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="organic">Organic/Content</text>
+    <text x="195" y="155" font-size="11" font-weight="bold" text-anchor="middle" fill="white">32%</text>
+    <text x="195" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="referral">Referral</text>
+    <text x="290" y="165" font-size="10" font-weight="bold" text-anchor="middle" fill="white">18%</text>
+    <text x="290" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="paid">Paid Ads</text>
+    <text x="385" y="180" font-size="9" font-weight="bold" text-anchor="middle" fill="white">7%</text>
+    <text x="385" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="direct">Direct</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title" data-key="chart3Title">3. Sales Funnel Conversion Rates</h3>
+  <p class="chart-subtitle" data-key="chart3Subtitle">Lead to proposal to closed deal progression</p>
+  <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="250" fill="#f8f8f8"/>
+    <polygon points="80,80 420,80 400,150 100,150" fill="#aa8a34" opacity="0.9"/>
+    <polygon points="100,160 400,160 350,200 150,200" fill="#aa8a34" opacity="0.7"/>
+    <polygon points="150,210 350,210 320,240 180,240" fill="#aa8a34" opacity="0.5"/>
+    <text x="250" y="110" font-size="12" font-weight="bold" text-anchor="middle" fill="white">8,400 Leads</text>
+    <text x="250" y="180" font-size="12" font-weight="bold" text-anchor="middle" fill="white">3,780 Proposals (45%)</text>
+    <text x="250" y="225" font-size="11" font-weight="bold" text-anchor="middle" fill="white">1,134 Closed Deals (30%)</text>
+    <text x="60" y="40" font-size="9" fill="#666" data-key="leads">Leads</text>
+    <text x="40" y="130" font-size="9" fill="#666" data-key="proposals">Proposals</text>
+    <text x="30" y="210" font-size="9" fill="#666" data-key="closed">Closed</text>
+  </svg>
+</div>
+
+<!-- RESULTS TABLE -->
+<h2 data-key="resultsTitle">Detailed Results</h2>
+<table class="results-table">
+  <thead>
+    <tr>
+      <th data-key="metric">Metric</th>
+      <th data-key="baseline">Baseline</th>
+      <th data-key="final">Final</th>
+      <th data-key="improvement">Improvement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong data-key="monthlyLeads">Monthly Inbound Leads</strong></td>
+      <td>200</td>
+      <td><span class="metric-positive">700</span></td>
+      <td><span class="metric-positive">+250%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="organicLeads">Organic Leads (Monthly)</strong></td>
+      <td>50</td>
+      <td><span class="metric-positive">420</span></td>
+      <td><span class="metric-positive">+740%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="qualityScore">Lead Quality Score</strong></td>
+      <td>5.2/10</td>
+      <td><span class="metric-positive">8.2/10</span></td>
+      <td><span class="metric-positive">+58%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="conversionToProposal">Lead to Proposal Conversion</strong></td>
+      <td>25%</td>
+      <td><span class="metric-positive">45%</span></td>
+      <td><span class="metric-positive">+80%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="annualProjects">Closed Projects (Annual)</strong></td>
+      <td>280</td>
+      <td><span class="metric-positive">1,134</span></td>
+      <td><span class="metric-positive">+305%</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- STRATEGIC INSIGHTS -->
+<section class="insights-section">
+  <h2 style="color: white; border-bottom-color: #aa8a34; margin-top: 0;" data-key="insightsTitle">8 Strategic Insights</h2>
+  
+  <div class="insights-grid">
+    <div class="insight-card">
+      <div class="insight-number">1</div>
+      <div class="insight-title" data-key="insight1Title">Website is First Salesperson</div>
+      <div class="insight-text" data-key="insight1Text">Website redesign alone (UX/design) increased conversion 0.8% → 1.4%. Not perfect, but every improvement compounds. Invest in website first.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">2</div>
+      <div class="insight-title" data-key="insight2Title">Positioning Unlocks Pricing Power</div>
+      <div class="insight-text" data-key="insight2Text">Clear positioning (\"strategic partner\" not \"vendor\") allowed 18% price increases without losing deals. Better positioning = better clients = higher margins.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">3</div>
+      <div class="insight-title" data-key="insight3Title">Content Marketing ROI is Exponential</div>
+      <div class="insight-text" data-key="insight3Text">First 20 blog posts generated 50 organic leads/month. By post 40: 420 organic leads/month. Growth compounds. Content is highest-ROI marketing channel long-term.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">4</div>
+      <div class="insight-title" data-key="insight4Title">Automation Scales Sales Without Hiring</div>
+      <div class="insight-text" data-key="insight4Text">HubSpot automation increased lead follow-up speed from 24+ hours to 2 hours. Zero additional sales staff. Conversion to proposal +80%. Automation ROI = immediately positive.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">5</div>
+      <div class="insight-title" data-key="insight5Title">Case Studies Sell Better Than Features</div>
+      <div class="insight-text" data-key="insight5Text">8 case studies on website: conversion pages with case studies = 3.5% conversion vs 1.2% without. Case studies are proof of ROI. Invest in them.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">6</div>
+      <div class="insight-title" data-key="insight6Title">Lead Quality Beats Lead Quantity</div>
+      <div class="insight-text" data-key="insight6Text">500 qualified leads (8/10 quality) > 2,000 low-quality leads (3/10 quality). Focused content marketing attracts better prospects than paid ads + generic messaging.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">7</div>
+      <div class="insight-title" data-key="insight7Title">Referral Programs Amplify Success</div>
+      <div class="insight-text" data-key="insight7Text">32% of leads now come from referrals—up from 70% initially. As company delivers results and generates content, referrals grow naturally. Create referral culture.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">8</div>
+      <div class="insight-title" data-key="insight8Title">Continuous Optimization Compounds</div>
+      <div class="insight-text" data-key="insight8Text">Each 1% improvement (UX, positioning, automation, content, follow-up speed) = 1% revenue lift. 8 × 1% improvements = 8% total. Small wins compound.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & FRAMEWORKS -->
+<section class="tools-section">
+  <h2 style="color: #1a1a1a; margin-top: 0;" data-key="toolsTitle">Tools & Frameworks Used</h2>
+  <p data-key="toolsIntro">Complete B2B website and lead generation technology stack:</p>
+  
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-name">Webflow</div>
+      <div class="tool-purpose">Website design & hosting</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">HubSpot</div>
+      <div class="tool-purpose">CRM, marketing automation, lead scoring</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Figma</div>
+      <div class="tool-purpose">Design system & prototyping</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">SEMrush/Ahrefs</div>
+      <div class="tool-purpose">SEO and content research</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">WordPress</div>
+      <div class="tool-purpose">Blog and content management</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Google Analytics 4</div>
+      <div class="tool-purpose">Visitor behavior tracking</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Typeform</div>
+      <div class="tool-purpose">Lead capture forms</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Positioning Framework</div>
+      <div class="tool-purpose">Strategic differentiation</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-text" data-key="quoteText">"SPM Grup completely transformed how we generate and manage leads. From 200 leads/month with 25% conversion to 700 leads/month with 45% conversion. And the quality is dramatically better—shorter sales cycles, higher deal values. The ROI on the website redesign and marketing transformation was 6x within the first year."</div>
+  <div class="quote-author" data-key="quoteAuthor">VP Sales, Technology Services</div>
+  <div class="quote-role" data-key="quoteRole">Post-8-Month Review</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-title" data-key="ctaTitle">Ready to Transform Your Website Into a Lead Machine?</div>
+  <div class="cta-text" data-key="ctaText">We have a proven framework for B2B website strategy, positioning, content marketing, and lead generation that compounds over time.</div>
+  <a href="tel:+40756775675" class="cta-btn" data-key="ctaButton">Schedule Website Strategy Call</a>
+</div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 <strong>SPM Grup</strong> | Premium Strategic Transformations</p>
+  <p>hello@spmgrup.ro | +40 756 775 675</p>
+</footer>
+
+<script>
+const translations = {
+  ro: {
+    backLink: "← Înapoi la Portofoliu",
+    title: "Transformarea Website B2B și Generare Leads",
+    subtitle: "Pentru o Companie de Servicii Tehnologice",
+    tagline: "Cum am redesenat și optimizat website-ul B2B pentru a genera 250% mai mulți leads calificați în 8 luni, transformând 2.400 de leads anuale în 8.400, cu 45% rata de conversie la propuneri.",
+    executiveSummary: "Rezumat Executive",
+    leadGrowth: "Creșterea Leads",
+    monthlyLeads: "Leads Lunari",
+    qualityScore: "Scor Calitate",
+    leadToProposal: "Lead la Propunere",
+    avgProjectValue: "Valoare Proiect Medie",
+    timeline: "Timeline",
+    contextTitle: "Contextul Proiectului",
+    contextText: "O companie mid-size de servicii tehnologice cu capabilități puternice de livrare și 15 ani în industrie se confrunta cu generare slabă de leads și pipeline. Website-ul era depășit, poziționare neclarå, diferențiere slabă de servicii, marketing de conținut minim. Echipa de vânzări era frustrată din cauza lipsei de leads calificați inbound—70% din noile afaceri veneau din recomandări și outreach rece. Provocare: transforma website-ul într-un motor de generare de leads în timp ce mențin credibilitatea brandului și demonstrez expertiza pentru a atrage prospecte de calitate mai bună.",
+    challengesTitle: "Provocări Strategice Profunde",
+    challenge1Title: "Website Depășit și Experiență Utilizator Slabă",
+    challenge1Text: "Design website din 2015, timpuri de încărcare lente, non-responsive mobile, navigare neclarå. Vizitatorii nu puteau înțelege rapid serviciile sau găsi informațiile de contact. Rata de bounce: 65%. Timp pe site: 42 de secunde. Conversie la interogare: 0,8%.",
+    challenge1Impact: "Impact: 65% din vizitatori pleacă fără să ia măsuri, generând zero leads",
+    challenge2Title: "Diferențiere Slabă de Servicii și Poziționare Neclarå",
+    challenge2Text: "Serviciile descrise generic: \"Consultanță tehnologie, dezvoltare software, servicii IT.\" Fără claritate pe de ce ar trebui clienții să aleagă această companie în loc de competitori. Fără mesaje ROI. Fără studii de caz sau dovezi de rezultate. Poziționarea era: \"Facem chestii de tehnologie\" nu \"Oferim €5M+ în valoare cumulativă pentru clienți anual prin implementare strategică de tehnologie.\"",
+    challenge2Impact: "Impact: Prospecții nu pot diferenția, presiune de preț pe marfă, cicluri de vânzări lungi",
+    challenge3Title: "Zero Marketing de Conținut și Thought Leadership",
+    challenge3Text: "Fără blog, fără whitepapers, fără studii de caz, fără perspective industrie. Compania avea 15 ani de expertiză dar nu partaja cunoștințe. Competitorii dețineau rezultatele căutării pentru \"cele mai bune practici consultanță tehnologie,\" \"arhitectură software,\" etc. Trafic SEO: 200 vizitatori lunari (organic). Calitate lead inbound: foarte scazutå—majoritar tire-kickers.",
+    challenge3Impact: "Impact: Nu există leads calificați inbound; dependență de vânzări outbound (scumpe, conversie scazutå)",
+    challenge4Title: "Fără Nurturare de Leads sau Automatizare Marketing",
+    challenge4Text: "Formularele de interogare capturau leads, dar fără follow-up automatizat. Leads nu erau segmentate, calificate, sau nutrite. Echipa de vânzări primea email-uri în bulk fără context. Fără lead scoring. 60% din leads nu primeau răspuns în 24 de ore. Rezultat: calitatea lead-urilor se deteriora; prospectele se mutau la competitori care răspundeau mai rapid.",
+    challenge4Impact: "Impact: Abandon mare de leads; pipeline slab; echipa de vânzări dă vina pe marketing",
+    methodologyTitle: "Metodologie: 4 Piloni ai Strategiei Website B2B",
+    method1Title: "Redesign Website și Optimizare UX",
+    method1Text: "Redesign complet website: design modern, mobile-first responsive, 40% mai rapid timpuri de încărcare (4,2s → 2,1s), navigare clară, CTA-uri prominente. Homepage nou: propunere de valoare clară deasupra pliului, logo-uri clienți, servicii cheie evidențiate, testimoniale, contact ușor. Rezultat: rata bounce 65% → 38%, timp pe site 42s → 3m 15s, conversie la interogare 0,8% → 2,1%.",
+    method2Title: "Poziționare Strategică și Diferențiere Servicii",
+    method2Text: "Am cercetat buyer personas și poziționarea competitivă. Am repositionat compania: \"Partener strategist de tehnologie pentru companii mid-market în creștere\" nu \"vendor de servicii tehnologie.\" Am evidențiat rezultate: timp-la-piață mai rapid, economii de 30%, ROI măsurabil. Am creat 3 verticale de servicii: Digital Transformation, Enterprise Solutions, Custom Development. Fiecare cu mesaje ROI specifice și profiluri țintei de cumpărător.",
+    method3Title: "Program Marketing Conținut și Thought Leadership",
+    method3Text: "Am creat bibliotecă cuprinzătoare de conținut: 40 articole blog (optimizate SEO), 8 studii de caz (analize adânci care arată ROI), 5 whitepapers (cercetare industrie), serie webinar (interviuri expert). Subiecte: ROI transformare digitală, modele arhitectură enterprise, cele mai bune practici livrare software. Rezultat: 200 vizitatori organic lunari → 2.800 lunari. Leads organic: 50 → 420 lunari.",
+    method4Title: "Nurturare Leads și Automatizare Marketing",
+    method4Text: "Am implementat HubSpot pentru gestionare leads, scoring, și automatizare. Leads rutate automat la vânzări când pragul \"MQL\" (Marketing Qualified Lead) e atins. Secvențe email nurture automatizate: 3 secvențe bazate pe interes de serviciu. Model lead scoring: mărime companie, industrie, nivel de implicare, potrivire. Rezultat: 80% din leads au primit contact în 2 ore. Conversie la propunere: 35% → 45%.",
+    chart1Title: "1. Creștere Volum Lead Lunar",
+    chart1Subtitle: "Generare lead pe sursă pe parcursul perioadei de 8 luni",
+    chart2Title: "2. Distribuție Sursă Lead",
+    chart2Subtitle: "De unde vin leads calificați (medie 8 luni)",
+    chart3Title: "3. Rate de Conversie Pâlnie Vânzări",
+    chart3Subtitle: "Progresie lead la propunere la deal închis",
+    leadTimeline: "200 → 700 leads/lună",
+    organic: "Organic/Conținut",
+    referral: "Recomandare",
+    paid: "Anunțuri Plătite",
+    direct: "Direct",
+    leads: "Leads",
+    proposals: "Propuneri",
+    closed: "Închise",
+    resultsTitle: "Rezultate Detaliate",
+    metric: "Metrică",
+    baseline: "Inițial",
+    final: "Final",
+    improvement: "Îmbunătățire",
+    monthlyLeads: "Leads Inbound Lunari",
+    organicLeads: "Leads Organic (Lunar)",
+    qualityScore: "Scor Calitate Lead",
+    conversionToProposal: "Conversie Lead la Propunere",
+    annualProjects: "Proiecte Închise (Anual)",
+    insightsTitle: "8 Perspective Strategice",
+    insight1Title: "Website e Primul Vânzător",
+    insight1Text: "Redesign website singur (UX/design) a crescut conversia 0,8% → 1,4%. Nu perfect, dar fiecare îmbunătățire se compune. Investiți în website primul.",
+    insight2Title: "Poziționare Deblochează Putere Preț",
+    insight2Text: "Poziționare clară (\"partener strategic\" nu \"vendor\") a permis creșteri de preț de 18% fără a pierde deals. Poziționare mai bună = clienți mai buni = margini mai mari.",
+    insight3Title: "ROI Marketing Conținut Exponențial",
+    insight3Text: "Primele 20 articole blog au generat 50 leads organic/lună. La articolul 40: 420 leads organic/lună. Creșterea se compune. Conținutul este cel mai mare ROI canal marketing pe termen lung.",
+    insight4Title: "Automatizare Scalează Vânzări Fără Angajare",
+    insight4Text: "Automatizare HubSpot a crescut viteza follow-up lead de la 24+ ore la 2 ore. Zero personal de vânzări suplimentar. Conversie la propunere +80%. ROI automatizare = imediat pozitiv.",
+    insight5Title: "Studii de Caz Vând Mai Bine Decât Caracteristici",
+    insight5Text: "8 studii de caz pe website: pagini de conversie cu studii de caz = conversie 3,5% vs 1,2% fără. Studiile de caz sunt dovadă a ROI. Investiți în ele.",
+    insight6Title: "Calitate Lead Bate Cantitate Lead",
+    insight6Text: "500 leads calificați (8/10 calitate) > 2.000 leads calitate scazutå (3/10 calitate). Marketing conținut focusat atrage prospecte mai bune decât anunțuri plătite + mesaje generice.",
+    insight7Title: "Programe de Recomandare Amplificå Succes",
+    insight7Text: "32% din leads acum vin din recomandări—sus de la 70% inițial. Pe măsură ce compania livrează rezultate și generează conținut, recomandările cresc natural. Creați cultură recomandare.",
+    insight8Title: "Optimizare Continuă Compune",
+    insight8Text: "Fiecare îmbunătățire de 1% (UX, poziționare, automatizare, conținut, viteză follow-up) = ridicare venit 1%. 8 × îmbunătățiri 1% = total 8%. Victoriile mici compun.",
+    toolsTitle: "Instrumente și Cadre Utilizate",
+    toolsIntro: "Stivă de tehnologie completă pentru website B2B și generare leads:",
+    quoteText: "\"SPM Grup a transformat complet cum generez și gestionez leads. De la 200 leads/lună cu conversie 25% la 700 leads/lună cu conversie 45%. Și calitatea este dramatic mai bună—cicluri de vânzări mai scurte, valori deal mai mari. ROI pe redesign-ul website-ului și transformarea marketing a fost 6x în primul an.\"",
+    quoteAuthor: "VP Vânzări, Servicii Tehnologie",
+    quoteRole: "Revizuire După 8 Luni",
+    ctaTitle: "Gata să Transformi Website-ul Într-o Mașină de Generare Leads?",
+    ctaText: "Avem un cadru dovedit pentru strategie website B2B, poziționare, marketing conținut, și generare leads care compune în timp.",
+    ctaButton: "Programează Apel Strategie Website"
+  },
+  en: {
+    backLink: "← Back to Portfolio",
+    title: "B2B Website Transformation and Lead Generation",
+    subtitle: "For a Technology Services Company",
+    tagline: "How we redesigned and optimized a B2B website to generate 250% more qualified leads in 8 months, transforming 2,400 annual leads into 8,400, with 45% conversion rate to proposals.",
+    executiveSummary: "Executive Summary",
+    leadGrowth: "Lead Growth",
+    monthlyLeads: "Monthly Leads",
+    qualityScore: "Quality Score",
+    leadToProposal: "Lead to Proposal",
+    avgProjectValue: "Avg Project Value",
+    timeline: "Timeline",
+    contextTitle: "Project Context",
+    contextText: "A mid-sized technology services company with strong delivery capabilities and 15 years in business struggled with lead generation and sales pipeline. Website was outdated, unclear positioning, weak service differentiation, minimal content marketing. Sales team was frustrated with lack of qualified inbound leads—70% of new business came from referrals and cold outreach. Challenge: transform website into lead generation engine while maintaining brand credibility and showcasing expertise to attract better-quality prospects.",
+    challengesTitle: "Deep Strategic Challenges",
+    challenge1Title: "Outdated Website and Poor User Experience",
+    challenge1Text: "Website design dated to 2015, slow load times, not mobile-friendly, unclear navigation. Visitors couldn't quickly understand services or find contact information. Bounce rate: 65%. Time on site: 42 seconds. Conversion to inquiry: 0.8%.",
+    challenge1Impact: "Impact: 65% of visitors leave without taking action, generating zero leads",
+    challenge2Title: "Weak Service Differentiation and Unclear Positioning",
+    challenge2Text: "Services described generically: \"Technology consulting, software development, IT services.\" No clear why customers should choose this company over competitors. No ROI messaging. No case studies or proof of results. Positioning was: \"We do technology stuff\" not \"We deliver €5M+ in cumulative client value annually through strategic tech implementation.\"",
+    challenge2Impact: "Impact: Prospects can't differentiate, commodity pricing pressure, long sales cycles",
+    challenge3Title: "Zero Content Marketing and Thought Leadership",
+    challenge3Text: "No blog, no whitepapers, no case studies, no industry insights. Company had 15 years of expertise but wasn't sharing knowledge. Competitors owned search results for \"technology consulting best practices,\" \"software architecture,\" etc. SEO traffic: 200 monthly visitors (organic). Inbound lead quality: very low—mostly tire-kickers.",
+    challenge3Impact: "Impact: No inbound qualified leads; reliance on outbound sales (expensive, low conversion)",
+    challenge4Title: "No Lead Nurturing or Marketing Automation",
+    challenge4Text: "Inquiry forms captured leads, but no automated follow-up. Leads weren't segmented, qualified, or nurtured. Sales team received bulk emails with no context. No lead scoring. 60% of leads never received response within 24 hours. Result: lead quality deteriorated; prospects moved to competitors who responded faster.",
+    challenge4Impact: "Impact: High lead abandonment; weak pipeline; sales team blaming marketing",
+    methodologyTitle: "Methodology: 4 Pillars of B2B Website Strategy",
+    method1Title: "Website Redesign and UX Optimization",
+    method1Text: "Complete website redesign: modern design, mobile-first responsive, 40% faster load time (4.2s → 2.1s), clear navigation, prominent CTAs. New homepage: clear value prop above-the-fold, client logos, key services highlighted, testimonials, easy contact. Result: bounce rate 65% → 38%, time on site 42s → 3m 15s, conversion to inquiry 0.8% → 2.1%.",
+    method2Title: "Strategic Positioning and Service Differentiation",
+    method2Text: "Researched buyer personas and competitive positioning. Repositioned company: \"Strategic technology partner for mid-market growth companies\" not \"technology services vendor.\" Highlighted outcomes: faster time-to-market, 30% cost savings, measurable ROI. Created 3 service verticals: Digital Transformation, Enterprise Solutions, Custom Development. Each with specific ROI messaging and target buyer profiles.",
+    method3Title: "Content Marketing and Thought Leadership Program",
+    method3Text: "Created comprehensive content library: 40 blog posts (SEO-optimized), 8 case studies (deep dives showing ROI), 5 whitepapers (industry research), webinar series (expert interviews). Topics: digital transformation ROI, enterprise architecture patterns, software delivery best practices. Result: 200 monthly organic visitors → 2,800 monthly. Organic leads: 50 → 420 monthly.",
+    method4Title: "Lead Nurturing and Marketing Automation",
+    method4Text: "Implemented HubSpot for lead management, scoring, and automation. Leads automatically routed to sales when \"MQL\" (Marketing Qualified Lead) threshold hit. Automated email nurture sequences: 3 sequences based on service interest. Lead scoring model: company size, industry, engagement level, fit. Result: 80% of leads received contact within 2 hours. Conversion to proposal: 35% → 45%.",
+    chart1Title: "1. Monthly Lead Volume Growth",
+    chart1Subtitle: "Lead generation by source over 8-month period",
+    chart2Title: "2. Lead Source Distribution",
+    chart2Subtitle: "Where qualified leads come from (8-month average)",
+    chart3Title: "3. Sales Funnel Conversion Rates",
+    chart3Subtitle: "Lead to proposal to closed deal progression",
+    leadTimeline: "200 → 700 leads/month",
+    organic: "Organic/Content",
+    referral: "Referral",
+    paid: "Paid Ads",
+    direct: "Direct",
+    leads: "Leads",
+    proposals: "Proposals",
+    closed: "Closed",
+    resultsTitle: "Detailed Results",
+    metric: "Metric",
+    baseline: "Baseline",
+    final: "Final",
+    improvement: "Improvement",
+    monthlyLeads: "Monthly Inbound Leads",
+    organicLeads: "Organic Leads (Monthly)",
+    qualityScore: "Lead Quality Score",
+    conversionToProposal: "Lead to Proposal Conversion",
+    annualProjects: "Closed Projects (Annual)",
+    insightsTitle: "8 Strategic Insights",
+    insight1Title: "Website is First Salesperson",
+    insight1Text: "Website redesign alone (UX/design) increased conversion 0.8% → 1.4%. Not perfect, but every improvement compounds. Invest in website first.",
+    insight2Title: "Positioning Unlocks Pricing Power",
+    insight2Text: "Clear positioning (\"strategic partner\" not \"vendor\") allowed 18% price increases without losing deals. Better positioning = better clients = higher margins.",
+    insight3Title: "Content Marketing ROI is Exponential",
+    insight3Text: "First 20 blog posts generated 50 organic leads/month. By post 40: 420 organic leads/month. Growth compounds. Content is highest-ROI marketing channel long-term.",
+    insight4Title: "Automation Scales Sales Without Hiring",
+    insight4Text: "HubSpot automation increased lead follow-up speed from 24+ hours to 2 hours. Zero additional sales staff. Conversion to proposal +80%. Automation ROI = immediately positive.",
+    insight5Title: "Case Studies Sell Better Than Features",
+    insight5Text: "8 case studies on website: conversion pages with case studies = 3.5% conversion vs 1.2% without. Case studies are proof of ROI. Invest in them.",
+    insight6Title: "Lead Quality Beats Lead Quantity",
+    insight6Text: "500 qualified leads (8/10 quality) > 2,000 low-quality leads (3/10 quality). Focused content marketing attracts better prospects than paid ads + generic messaging.",
+    insight7Title: "Referral Programs Amplify Success",
+    insight7Text: "32% of leads now come from referrals—up from 70% initially. As company delivers results and generates content, referrals grow naturally. Create referral culture.",
+    insight8Title: "Continuous Optimization Compounds",
+    insight8Text: "Each 1% improvement (UX, positioning, automation, content, follow-up speed) = 1% revenue lift. 8 × 1% improvements = 8% total. Small wins compound.",
+    toolsTitle: "Tools & Frameworks Used",
+    toolsIntro: "Complete B2B website and lead generation technology stack:",
+    quoteText: "\"SPM Grup completely transformed how we generate and manage leads. From 200 leads/month with 25% conversion to 700 leads/month with 45% conversion. And the quality is dramatically better—shorter sales cycles, higher deal values. The ROI on the website redesign and marketing transformation was 6x within the first year.\"",
+    quoteAuthor: "VP Sales, Technology Services",
+    quoteRole: "Post-8-Month Review",
+    ctaTitle: "Ready to Transform Your Website Into a Lead Machine?",
+    ctaText: "We have a proven framework for B2B website strategy, positioning, content marketing, and lead generation that compounds over time.",
+    ctaButton: "Schedule Website Strategy Call"
+  }
+};
+
+function switchLanguage(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+
+  document.querySelectorAll('[data-key]').forEach(element => {
+    const key = element.getAttribute('data-key');
+    if (translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+
+  document.documentElement.lang = lang;
+  localStorage.setItem('preferredLanguage', lang);
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  const savedLang = localStorage.getItem('preferredLanguage') || 'ro';
+  switchLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>
