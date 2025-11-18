@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Brand Strategy & Positioning - Premium Case Study | SPM Grup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; overflow-x: hidden; }
+    
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* LANGUAGE TOGGLE */
+    .language-toggle { position: fixed; top: 1rem; right: 1rem; z-index: 1000; background: white; border: 2px solid #aa8a34; border-radius: 50px; padding: 0.5rem 0.5rem; display: flex; gap: 0.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+    .lang-btn { padding: 0.6rem 1.2rem; border: none; background: transparent; color: #1a1a1a; font-weight: 600; cursor: pointer; border-radius: 40px; transition: all 0.3s; font-size: 0.85rem; }
+    .lang-btn.active { background: #aa8a34; color: white; }
+    .lang-btn:hover { background: #f0f0f0; }
+    .lang-btn.active:hover { background: #aa8a34; }
+    
+    /* HEADER */
+    header { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 3rem 1rem; text-align: center; position: relative; overflow: hidden; margin-bottom: 2rem; }
+    header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(170, 138, 52, 0.15) 0%, transparent 70%); border-radius: 50%; }
+    
+    .header-content { position: relative; z-index: 2; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2; }
+    .subtitle { font-size: clamp(1rem, 3vw, 1.2rem); color: #aa8a34; font-weight: 600; margin-bottom: 1rem; }
+    .tagline { font-size: clamp(0.9rem, 2.5vw, 1.05rem); color: #ddd; line-height: 1.7; max-width: 700px; margin: 0 auto; }
+    
+    a.back-link { display: inline-block; color: #aa8a34; text-decoration: none; font-weight: 600; margin-bottom: 2rem; font-size: 0.95rem; }
+    a.back-link:hover { text-decoration: underline; }
+    
+    /* HEADINGS */
+    h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 1.5rem; margin-top: 2.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid #aa8a34; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.3rem); font-weight: 700; color: #1a1a1a; margin-top: 1.5rem; margin-bottom: 1rem; }
+    
+    /* EXECUTIVE SUMMARY */
+    .executive-summary { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .summary-item { background: white; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .summary-label { font-size: 0.75rem; text-transform: uppercase; color: #999; font-weight: 700; letter-spacing: 0.5px; }
+    .summary-value { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; color: #aa8a34; margin-top: 0.5rem; }
+    
+    /* CHALLENGE CARDS */
+    .challenges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .challenge-card { background: white; border: 2px solid #e0e0e0; border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 6px; transition: all 0.3s; }
+    .challenge-card:hover { border-color: #aa8a34; box-shadow: 0 8px 16px rgba(170, 138, 52, 0.1); transform: translateY(-2px); }
+    .challenge-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .challenge-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 1rem; }
+    .challenge-text { font-size: 0.9rem; color: #666; line-height: 1.6; }
+    .challenge-impact { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #999; font-weight: 600; }
+    
+    /* METHODOLOGY */
+    .methodology-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .method-card { background: white; padding: 1.2rem; border-radius: 6px; border: 1px solid #e0e0e0; }
+    .method-number { font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .method-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .method-text { font-size: 0.85rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
+    .method-tools { font-size: 0.75rem; color: #999; padding: 0.8rem; background: #f5f5f5; border-radius: 4px; border-left: 3px solid #aa8a34; }
+    
+    /* CHARTS */
+    .chart-container { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow-x: auto; }
+    .chart-title { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; }
+    .chart-subtitle { font-size: 0.8rem; color: #999; margin-bottom: 1rem; }
+    svg { width: 100%; height: auto; min-height: 250px; }
+    
+    /* INSIGHTS */
+    .insights-section { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .insight-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(170, 138, 52, 0.3); padding: 1.2rem; border-radius: 6px; backdrop-filter: blur(10px); }
+    .insight-number { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .insight-title { font-weight: 700; margin-bottom: 0.6rem; font-size: 0.9rem; }
+    .insight-text { font-size: 0.8rem; line-height: 1.5; color: #ddd; }
+    
+    /* TOOLS & FRAMEWORKS */
+    .tools-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .tool-card { background: white; padding: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .tool-name { font-weight: 700; color: #1a1a1a; margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .tool-purpose { font-size: 0.8rem; color: #666; }
+    
+    /* RESULTS TABLE */
+    .results-table { width: 100%; border-collapse: collapse; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; font-size: 0.9rem; }
+    .results-table thead { background: #1a1a1a; color: white; }
+    .results-table th { padding: 1rem; text-align: left; font-weight: 700; font-size: 0.85rem; border-bottom: 2px solid #aa8a34; }
+    .results-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #e0e0e0; }
+    .results-table tr:nth-child(even) { background: #f8f8f8; }
+    .results-table tr:hover { background: #f0f0f0; }
+    .metric-positive { color: #aa8a34; font-weight: 700; }
+    
+    /* LESSONS LEARNED */
+    .lessons-section { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .lesson-item { background: white; padding: 1.2rem; margin-bottom: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .lesson-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .lesson-text { font-size: 0.85rem; color: #666; line-height: 1.6; }
+    
+    /* QUOTE */
+    .quote-section { background: white; border-left: 5px solid #aa8a34; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .quote-text { font-size: clamp(1rem, 2vw, 1.15rem); font-style: italic; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.7; }
+    .quote-author { font-weight: 700; color: #aa8a34; font-size: 0.9rem; }
+    .quote-role { font-size: 0.8rem; color: #999; }
+    
+    /* CTA SECTION */
+    .cta-section { background: linear-gradient(135deg, #aa8a34 0%, #8b6e28 100%); color: white; padding: 2rem 1.5rem; border-radius: 8px; text-align: center; margin: 3rem 0; }
+    .cta-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-text { font-size: clamp(0.9rem, 2vw, 1.05rem); margin-bottom: 1.5rem; line-height: 1.6; }
+    .cta-btn { display: inline-block; background: #1a1a1a; color: white; padding: 0.9rem 2rem; text-decoration: none; font-weight: 700; border-radius: 6px; transition: all 0.3s; font-size: 0.95rem; border: none; cursor: pointer; }
+    .cta-btn:hover { background: #2a2a2a; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    
+    /* FOOTER */
+    footer { background: #1a1a1a; color: #ccc; padding: 2rem 1rem; text-align: center; font-size: 0.85rem; margin-top: 3rem; border-top: 2px solid #aa8a34; }
+    footer strong { color: #aa8a34; }
+    
+    /* UTILITY */
+    p { margin-bottom: 1rem; font-size: 0.95rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.6rem; color: #666; line-height: 1.6; font-size: 0.95rem; }
+    
+    .hidden { display: none; }
+    
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 1024px) {
+      .language-toggle { top: 0.8rem; right: 0.8rem; }
+      .challenges-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+      .methodology-grid { grid-template-columns: repeat(2, 1fr); }
+      .insights-grid { grid-template-columns: repeat(2, 1fr); }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .summary-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    @media (max-width: 768px) {
+      .language-toggle { top: 0.8rem; right: 0.8rem; padding: 0.4rem 0.4rem; }
+      .lang-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+      .container { padding: 0 0.8rem; }
+      header { padding: 2rem 0.8rem; margin-bottom: 1.5rem; margin-top: 3rem; }
+      h1 { font-size: 1.6rem; }
+      .subtitle { font-size: 1rem; }
+      h2 { font-size: 1.3rem; margin-top: 2rem; }
+      h3 { font-size: 1rem; }
+      
+      .executive-summary { padding: 1rem; margin: 1.5rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .summary-item { padding: 0.8rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .methodology-section { padding: 1.2rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 1rem; }
+      
+      .chart-container { padding: 1rem; }
+      svg { min-height: 200px; }
+      
+      .insights-section { padding: 1.2rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 1rem; }
+      
+      .tools-section { padding: 1.2rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 1rem; }
+      
+      .results-table { font-size: 0.8rem; }
+      .results-table th { padding: 0.8rem; }
+      .results-table td { padding: 0.6rem 0.8rem; }
+      
+      .lessons-section { padding: 1.2rem; }
+      .lesson-item { padding: 1rem; }
+      
+      .quote-section { padding: 1.2rem; }
+      .quote-text { font-size: 1rem; }
+      
+      .cta-section { padding: 1.5rem 1rem; margin: 2rem 0; }
+      .cta-title { font-size: 1.4rem; }
+      .cta-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+      
+      footer { padding: 1.5rem 1rem; font-size: 0.8rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .language-toggle { top: 0.6rem; right: 0.6rem; padding: 0.3rem 0.3rem; }
+      .lang-btn { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+      .container { padding: 0 0.7rem; }
+      header { padding: 1.5rem 0.7rem; margin-top: 2.5rem; }
+      h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+      .subtitle { font-size: 0.9rem; }
+      .tagline { font-size: 0.85rem; }
+      a.back-link { font-size: 0.85rem; margin-bottom: 1.5rem; }
+      
+      h2 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem; padding-bottom: 0.6rem; }
+      h3 { font-size: 0.95rem; }
+      
+      .executive-summary { padding: 0.9rem; margin: 1rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .summary-item { padding: 0.7rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .challenge-card { padding: 1rem; }
+      .challenge-title { font-size: 0.9rem; }
+      .challenge-text { font-size: 0.8rem; }
+      
+      .methodology-section { padding: 1rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .method-card { padding: 0.9rem; }
+      .method-number { font-size: 1.6rem; }
+      .method-title { font-size: 0.85rem; }
+      .method-text { font-size: 0.75rem; }
+      .method-tools { font-size: 0.7rem; }
+      
+      .chart-container { padding: 0.8rem; margin: 1.5rem 0; }
+      svg { min-height: 150px; }
+      
+      .insights-section { padding: 1rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .insight-card { padding: 0.9rem; }
+      .insight-number { font-size: 1.4rem; }
+      .insight-title { font-size: 0.8rem; }
+      .insight-text { font-size: 0.7rem; }
+      
+      .tools-section { padding: 1rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .tool-card { padding: 0.8rem; }
+      
+      .results-table { font-size: 0.75rem; }
+      .results-table th, .results-table td { padding: 0.5rem; }
+      
+      .lessons-section { padding: 1rem; }
+      .lesson-item { padding: 0.9rem; margin-bottom: 0.8rem; }
+      .lesson-title { font-size: 0.85rem; }
+      
+      .quote-section { padding: 1rem; }
+      .quote-text { font-size: 0.9rem; }
+      
+      .cta-section { padding: 1.2rem 0.8rem; margin: 1.5rem 0; }
+      .cta-title { font-size: 1.2rem; }
+      .cta-text { font-size: 0.9rem; }
+      .cta-btn { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+      
+      footer { padding: 1.2rem 0.7rem; font-size: 0.75rem; }
+      p, li { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LANGUAGE TOGGLE -->
+<div class="language-toggle">
+  <button class="lang-btn active" data-lang="ro" onclick="switchLanguage('ro')">RO</button>
+  <button class="lang-btn" data-lang="en" onclick="switchLanguage('en')">EN</button>
+</div>
+
+<a href="/" class="back-link" data-key="backLink">← Back to Portfolio</a>
+
+<header>
+  <div class="header-content">
+    <h1 data-key="title">Brand Strategy and Market Positioning Transformation</h1>
+    <div class="subtitle" data-key="subtitle">For a Mid-Market B2B SaaS Company</div>
+    <p class="tagline" data-key="tagline">How we repositioned a generic tech company into a category-defining brand, growing brand awareness from 12% to 68% market penetration, increasing sales-qualified leads by 320%, and raising Series B funding at €45M valuation.</p>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="executive-summary">
+  <h2 style="margin-top: 0; border: none; color: #1a1a1a;" data-key="executiveSummary">Executive Summary</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="summary-label" data-key="brandAwareness">Brand Awareness</div>
+      <div class="summary-value">+467%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="sqlGrowth">SQL Growth</div>
+      <div class="summary-value">+320%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="fundingAnnouncement">Series B Funding</div>
+      <div class="summary-value">€45M</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="brandValue">Brand Value Inc.</div>
+      <div class="summary-value">+€28M</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="marketShare">Market Share</div>
+      <div class="summary-value">18%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label" data-key="timeline">Timeline</div>
+      <div class="summary-value">12 Months</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<h2 data-key="contextTitle">Project Context</h2>
+<p data-key="contextText">A fast-growing B2B SaaS company with strong product and 40% YoY growth faced a critical market challenge: perceived as another generic enterprise software vendor with no clear differentiation. Despite excellent retention (98%) and product-market fit, customer acquisition was expensive and competitive. Brand value didn't reflect business performance. Challenge: reposition company as category innovator to accelerate growth, attract enterprise customers, and support upcoming Series B funding round.</p>
+
+<!-- DEEP DIVE CHALLENGES -->
+<h2 data-key="challengesTitle">Deep Strategic Challenges</h2>
+
+<div class="challenges-grid">
+  <div class="challenge-card">
+    <div class="challenge-icon">🏢</div>
+    <div class="challenge-title" data-key="challenge1Title">Generic Positioning and Brand Invisibility</div>
+    <div class="challenge-text" data-key="challenge1Text">Company described itself: \"Enterprise software platform for operational efficiency.\" Competitors used identical messaging. No clear why customers should choose this company. Brand awareness: only 12% in target market. Share of voice: 2-3% against competitors. Leadership team had no visible thought leadership presence.</div>
+    <div class="challenge-impact" data-key="challenge1Impact">Impact: Customers default to known vendors; hard to justify premium pricing; expensive customer acquisition</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">📊</div>
+    <div class="challenge-title" data-key="challenge2Title">Weak Narrative and Unclear Value Story</div>
+    <div class="challenge-text" data-key="challenge2Text">Company had strong product, great retention, growing revenue—but no compelling narrative explaining \"why this company will win.\" Investors wanted to understand: What category are you defining? What's unique? Why now? Company couldn't answer with conviction.</div>
+    <div class="challenge-impact" data-key="challenge2Impact">Impact: Series B fundraising difficult; valuation pressure; hard to attract top talent who want clear mission</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">🎯</div>
+    <div class="challenge-title" data-key="challenge3Title">Unfocused Customer Target and Messaging</div>
+    <div class="challenge-text" data-key="challenge3Text">Sales team tried to sell to \"any enterprise company.\" Marketing messaging was broad platitudes. No clear buyer persona, industry focus, or company size targeting. Led to low-fit customer acquisition, high support costs, extended sales cycles, mixed customer success outcomes.</div>
+    <div class="challenge-impact" data-key="challenge3Impact">Impact: CAC high (€18K), LTV/CAC ratio weak (2.1x), customer quality inconsistent, retention suffering in wrong segments</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">📢</div>
+    <div class="challenge-title" data-key="challenge4Title">No Thought Leadership or Executive Visibility</div>
+    <div class="challenge-text" data-key="challenge4Text">CEO and leadership team had no public profile: no speaking engagements, no published opinions, no social media presence. Competitors' executives visible at conferences, quoted in press, perceived as industry experts. Company appeared to have no unique perspective on industry trends.</div>
+    <div class="challenge-impact" data-key="challenge4Impact">Impact: Lost trust-building opportunity; weak hiring/fundraising advantage; vulnerable to competitor influence over narrative</div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<section class="methodology-section">
+  <h2 style="color: #1a1a1a; border-bottom-color: #1a1a1a; margin-top: 0;" data-key="methodologyTitle">Methodology: 4 Pillars of Brand Strategy</h2>
+  
+  <div class="methodology-grid">
+    <div class="method-card">
+      <div class="method-number">1</div>
+      <div class="method-title" data-key="method1Title">Brand Positioning and Market Definition</div>
+      <div class="method-text" data-key="method1Text">Conducted deep customer research: interviews with 30+ customers and lost deals, competitor analysis, market trend analysis. Defined new positioning: \"The operating system for mid-market enterprises\" (clear differentiation). Positioned company as category creator in \"Enterprise Operations Intelligence.\" Created narrative: \"The future belongs to enterprises that can predict and prevent operational failures.\"</div>
+      <div class="method-tools">Tools: Positioning workshop, buyer journey mapping, messaging framework, brand architecture</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">2</div>
+      <div class="method-title" data-key="method2Title">Target Market Segmentation and Buyer Personas</div>
+      <div class="method-text" data-key="method2Text">Analyzed customer data: revenue size, industry, company maturity, product adoption, retention rates, ROI, expansion revenue. Identified ideal customer profile: mid-market (€100M-1B revenue), manufacturing/financial services, operational risk-focused buyers. Created 4 detailed buyer personas with motivations, pain points, buying process. Aligned sales and marketing on ICP vs. other segments (don't pursue).</div>
+      <div class="method-tools">Tools: Customer data analysis, buyer journey interviews, persona development, sales alignment workshops</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">3</div>
+      <div class="method-title" data-key="method3Title">Executive Thought Leadership Program</div>
+      <div class="method-text" data-key="method3Text">Positioned CEO as industry expert on \"Enterprise Operations Resilience.\" Secured 8 speaking engagements at tier-1 conferences (Gartner, industry summits). Published 12 opinion pieces in major publications. Built CEO social presence: LinkedIn grew from 2K to 85K followers (compelling industry insights). Featured in 15 media mentions. Created executive visibility strategy: CEO as credible voice on industry trends.</div>
+      <div class="method-tools">Tools: Media relations, speaking engagement curation, content strategy, social media management, ghostwriting</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">4</div>
+      <div class="method-title" data-key="method4Title">Integrated Brand and Marketing Activation</div>
+      <div class="method-text" data-key="method4Text">Refreshed visual identity: new logo, color palette, website redesign reflecting brand promise. Updated all marketing: website content, sales collateral, case studies, ads, email templates. Launched integrated campaign: \"The Era of Enterprise Operations Intelligence.\" Advertised on LinkedIn, Google, sponsored content. Hosted \"Enterprise Operations Intelligence\" webinar series with customers and analysts.</div>
+      <div class="method-tools">Tools: Design system, brand guidelines, marketing automation, analytics tracking, campaign management</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<div class="chart-container">
+  <h3 class="chart-title" data-key="chart1Title">1. Brand Awareness Growth Over 12 Months</h3>
+  <p class="chart-subtitle" data-key="chart1Subtitle">Unaided brand awareness in target market segment</p>
+  <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="280" fill="#f8f8f8"/>
+    <line x1="50" y1="230" x2="450" y2="230" stroke="#e0e0e0" stroke-width="1"/>
+    <text x="20" y="235" font-size="10" fill="#666">0%</text>
+    <text x="10" y="135" font-size="10" fill="#666">35%</text>
+    <text x="5" y="35" font-size="10" fill="#666">70%</text>
+    <polyline points="50,210 100,195 150,175 200,145 250,105 300,75 350,55 400,35 450,25" stroke="#aa8a34" stroke-width="3" fill="none"/>
+    <circle cx="50" cy="210" r="4" fill="#aa8a34"/>
+    <circle cx="450" cy="25" r="4" fill="#aa8a34"/>
+    <text x="50" y="250" font-size="9" fill="#666">M1</text>
+    <text x="430" y="250" font-size="9" fill="#666">M12</text>
+    <text x="250" y="15" font-size="11" font-weight="bold" text-anchor="middle" fill="#1a1a1a" data-key="brandTimeline">12% → 68% awareness</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title" data-key="chart2Title">2. Customer Acquisition Cost and LTV Impact</h3>
+  <p class="chart-subtitle" data-key="chart2Subtitle">CAC and LTV/CAC ratio improvement with better positioning</p>
+  <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="250" fill="#f8f8f8"/>
+    <rect x="60" y="120" width="70" height="80" fill="#aa8a34" opacity="0.9"/>
+    <rect x="160" y="80" width="70" height="120" fill="#aa8a34" opacity="0.8"/>
+    <rect x="280" y="60" width="70" height="140" fill="#aa8a34" opacity="0.9"/>
+    <rect x="380" y="100" width="70" height="100" fill="#aa8a34" opacity="0.8"/>
+    <text x="95" y="165" font-size="11" font-weight="bold" text-anchor="middle" fill="white">€18K</text>
+    <text x="95" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="baselineCac">CAC Baseline</text>
+    <text x="195" y="145" font-size="11" font-weight="bold" text-anchor="middle" fill="white">€12K</text>
+    <text x="195" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="improvedCac">CAC Month 6</text>
+    <text x="315" y="130" font-size="11" font-weight="bold" text-anchor="middle" fill="white">€8.5K</text>
+    <text x="315" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="optimizedCac">CAC Final</text>
+    <text x="415" y="155" font-size="10" font-weight="bold" text-anchor="middle" fill="white">3.8x</text>
+    <text x="415" y="220" font-size="9" text-anchor="middle" fill="#1a1a1a" font-weight="bold" data-key="ltvratio">LTV/CAC</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title" data-key="chart3Title">3. Sales Pipeline Quality and Conversion</h3>
+  <p class="chart-subtitle" data-key="chart3Subtitle">Improvement in sales-qualified leads and close rates</p>
+  <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="250" fill="#f8f8f8"/>
+    <polygon points="80,100 200,100 190,150 90,150" fill="#aa8a34" opacity="0.6"/>
+    <polygon points="100,160 220,160 210,190 110,190" fill="#aa8a34" opacity="0.7"/>
+    <polygon points="120,200 240,200 235,230 125,230" fill="#aa8a34" opacity="0.85"/>
+    <text x="140" y="130" font-size="11" font-weight="bold" text-anchor="middle" fill="white">1,200 SQLs</text>
+    <text x="140" y="155" font-size="9" text-anchor="middle" fill="#666" data-key="baseline">Baseline</text>
+    <text x="160" y="180" font-size="11" font-weight="bold" text-anchor="middle" fill="white">3,840 SQLs</text>
+    <text x="160" y="195" font-size="9" text-anchor="middle" fill="#666" data-key="final">Final (+320%)</text>
+    <text x="180" y="220" font-size="10" font-weight="bold" text-anchor="middle" fill="white">32% Close Rate</text>
+    <text x="60" y="80" font-size="8" fill="#666" data-key="leads">MQLs</text>
+    <text x="70" y="150" font-size="8" fill="#666" data-key="qualified">SQLs</text>
+    <text x="70" y="190" font-size="8" fill="#666" data-key="customers">Customers</text>
+  </svg>
+</div>
+
+<!-- RESULTS TABLE -->
+<h2 data-key="resultsTitle">Detailed Results</h2>
+<table class="results-table">
+  <thead>
+    <tr>
+      <th data-key="metric">Metric</th>
+      <th data-key="baseline">Baseline</th>
+      <th data-key="final">Final</th>
+      <th data-key="impact">Impact</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong data-key="brandAwareness">Unaided Brand Awareness</strong></td>
+      <td>12%</td>
+      <td><span class="metric-positive">68%</span></td>
+      <td><span class="metric-positive">+467%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="shareOfVoice">Share of Voice</strong></td>
+      <td>2-3%</td>
+      <td><span class="metric-positive">22%</span></td>
+      <td><span class="metric-positive">+733%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="sqlsMonthly">Monthly Sales-Qualified Leads</strong></td>
+      <td>100</td>
+      <td><span class="metric-positive">420</span></td>
+      <td><span class="metric-positive">+320%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="salesCycle">Average Sales Cycle</strong></td>
+      <td>145 days</td>
+      <td><span class="metric-positive">92 days</span></td>
+      <td><span class="metric-positive">-37%</span></td>
+    </tr>
+    <tr>
+      <td><strong data-key="fundingRaised">Series B Funding Raised</strong></td>
+      <td>€0</td>
+      <td><span class="metric-positive">€45M</span></td>
+      <td><span class="metric-positive">New Round</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- STRATEGIC INSIGHTS -->
+<section class="insights-section">
+  <h2 style="color: white; border-bottom-color: #aa8a34; margin-top: 0;" data-key="insightsTitle">8 Strategic Insights</h2>
+  
+  <div class="insights-grid">
+    <div class="insight-card">
+      <div class="insight-number">1</div>
+      <div class="insight-title" data-key="insight1Title">Positioning Enables Premium Pricing</div>
+      <div class="insight-text" data-key="insight1Text">Clear positioning allowed 22% average price increase without customer resistance. Customers saw clear differentiation and unique value. Price elasticity inverted—higher price = higher perceived value and quality.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">2</div>
+      <div class="insight-title" data-key="insight2Title">Executive Visibility is Competitive Advantage</div>
+      <div class="insight-text" data-key="insight2Text">CEO speaking engagements and media coverage generated 35% of qualified leads. Executives visible at conferences = customers and investors trust the company's perspective on industry direction.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">3</div>
+      <div class="insight-title" data-key="insight3Title">Focus on ICP Reduces CAC Dramatically</div>
+      <div class="insight-text" data-key="insight3Text">Focusing sales on ideal customer profile reduced CAC from €18K to €8.5K (-53%). Tight targeting attracts better-fit customers who buy faster and expand more. Expansion revenue increased 28%.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">4</div>
+      <div class="insight-title" data-key="insight4Title">Brand Influences Investor Confidence</div>
+      <div class="insight-text" data-key="insight4Text">Series B valuation increased to €45M from estimated €17M (165% jump). Brand strength, market positioning, and executive visibility were critical factors investors cited in term sheets.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">5</div>
+      <div class="insight-title" data-key="insight5Title">Category Definition Accelerates Growth</div>
+      <div class="insight-text" data-key="insight5Text">Becoming known as the leader in \"Enterprise Operations Intelligence\" shortened sales cycles (145 → 92 days). Prospects self-selected based on category fit. Marketing efficiency improved 2.4x.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">6</div>
+      <div class="insight-title" data-key="insight6Title">Narrative Attracts Top Talent</div>
+      <div class="insight-text" data-key="insight6Text">With clear positioning and thought leadership, hiring became easier. Applications to open roles increased 180%. Candidates wanted to work for company defining the category, not just \"building software.\"</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">7</div>
+      <div class="insight-title" data-key="insight7Title">Competitor Response Validates Strategy</div>
+      <div class="insight-text" data-key="insight7Text">Within 6 months, 3 competitors adopted similar positioning language (industry validation). Being first to own the narrative gave competitive moat—competitors perceived as following, not leading.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">8</div>
+      <div class="insight-title" data-key="insight8Title">Brand Compounds Customer Lifetime Value</div>
+      <div class="insight-text" data-key="insight8Text">Strong brand reduced churn (98% → 99.2%), increased expansion revenue (+28%), reduced support costs (-18%). Better customers (ICP-focused) are higher LTV customers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & FRAMEWORKS -->
+<section class="tools-section">
+  <h2 style="color: #1a1a1a; margin-top: 0;" data-key="toolsTitle">Tools & Frameworks Used</h2>
+  <p data-key="toolsIntro">Complete brand strategy and positioning technology stack:</p>
+  
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-name">Brand Positioning Framework</div>
+      <div class="tool-purpose">Market definition & messaging</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Customer Research Program</div>
+      <div class="tool-purpose">Buyer persona & ICP definition</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Figma Design System</div>
+      <div class="tool-purpose">Brand identity & visual design</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Media Relations</div>
+      <div class="tool-purpose">PR and journalist relationships</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Speaking Bureau</div>
+      <div class="tool-purpose">Conference speaking engagements</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">LinkedIn Management</div>
+      <div class="tool-purpose">Executive social presence</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">HubSpot Marketing Automation</div>
+      <div class="tool-purpose">Campaign tracking & analytics</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Brand Intelligence Tools</div>
+      <div class="tool-purpose">Competitor & awareness tracking</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-text" data-key="quoteText">"SPM Grup took our company from a generic software vendor to the category leader in Enterprise Operations Intelligence. Brand awareness went from 12% to 68%. Sales cycles dropped 37%. We raised Series B at €45M valuation with investors citing our brand and positioning as key competitive strengths. This wasn't just a rebranding—it was a business transformation."</div>
+  <div class="quote-author" data-key="quoteAuthor">CEO, B2B SaaS Platform</div>
+  <div class="quote-role" data-key="quoteRole">Post-Series B Announcement</div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-title" data-key="ctaTitle">Ready to Transform Your Brand and Market Position?</div>
+  <div class="cta-text" data-key="ctaText">We have a proven framework for brand strategy, positioning, and executive visibility that accelerates growth and investor confidence.</div>
+  <a href="tel:+40756775675" class="cta-btn" data-key="ctaButton">Schedule Brand Strategy Workshop</a>
+</div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 <strong>SPM Grup</strong> | Premium Strategic Transformations</p>
+  <p>hello@spmgrup.ro | +40 756 775 675</p>
+</footer>
+
+<script>
+const translations = {
+  ro: {
+    backLink: "← Înapoi la Portofoliu",
+    title: "Transformarea Strategiei de Brand și Poziționare pe Piață",
+    subtitle: "Pentru o Companie B2B SaaS Mid-Market",
+    tagline: "Cum am repositionat o companie tehnologică generică într-un brand care definește categoria, crescând conștientizarea brandului de la 12% la 68% penetrare piață, crescând leads calificati de vânzări cu 320%, și strângând finanțare Series B la o evaluare de €45M.",
+    executiveSummary: "Rezumat Executive",
+    brandAwareness: "Conștientizare Brand",
+    sqlGrowth: "Creștere SQL",
+    fundingAnnouncement: "Finanțare Series B",
+    brandValue: "Creștere Valoare Brand",
+    marketShare: "Cotă de Piață",
+    timeline: "Timeline",
+    contextTitle: "Contextul Proiectului",
+    contextText: "O companie B2B SaaS în creștere rapidă cu 40% YoY se confrunta cu o provocare critică a pieței: era percepută ca alt vendor de software enterprise generic fără diferențiere clară. În ciuda reținerii excelente (98%) și potrivirii produs-piață, achiziția de clienți era scumpă și competitivă. Valoarea brandului nu reflecta performanța afacerii. Provocare: repropoziționează compania ca inovator de categorie pentru a accelera creșterea, a atrage clienți enterprise, și pentru a suporta viitoarea runda de finanțare Series B.",
+    challengesTitle: "Provocări Strategice Profunde",
+    challenge1Title: "Poziționare Generică și Invizibilitate Brand",
+    challenge1Text: "Compania se descria pe sine: \"Platforma software enterprise pentru eficiență operațională.\" Competitorii foloseau mesaje identice. Fără claritate pe de ce ar trebui clienții să aleagă această companie. Conștientizarea brandului: doar 12% pe piața țintă. Andel de voce: 2-3% contre competitori. Echipa de conducere nu avea prezență de leadership gânditor vizibil.",
+    challenge1Impact: "Impact: Clienții implicitează cu vânzători cunoscuți; greu de justificat preț premium; achiziție scumpă de clienți",
+    challenge2Title: "Narativ Slab și Poveste de Valoare Neclarå",
+    challenge2Text: "Compania avea produs puternic, retenție excelentă, venit în creștere—dar fără narativ convingător explicând \"de ce va câștiga această companie.\" Investitorii vroiau să înțeleagă: Ce categorie definiți? Ce-i unic? De ce acum? Compania nu putea răspunde cu convingere.",
+    challenge2Impact: "Impact: Strângere finanțare Series B dificilă; presiune evaluare; greu de atras talent top care doresc misiune clară",
+    challenge3Title: "Target Client Nefocusat și Mesaj Neclar",
+    challenge3Text: "Echipa de vânzări încercă să vândă la \"orice companie enterprise.\" Mesajul marketing era platozitate larg. Fără clear buyer persona, focalizare industrială, sau țintire mărime companie. A dus la achiziție client calitate scazutå, costuri suport mari, cicluri vânzări lungi, rezultate succes client mixte.",
+    challenge3Impact: "Impact: CAC mare (€18K), rație LTV/CAC slabă (2,1x), calitate client inconsistentă, retenție sufering în segmente greșite",
+    challenge4Title: "Fără Thought Leadership sau Vizibilitate Executive",
+    challenge4Text: "CEO și echipa de conducere nu aveau profil public: fără implicare la conferințe, fără opinii publicate, fără prezență social media. Executivii competitorilor vizibili la conferințe, citiți în presă, perceput ca experți industrie. Compania părea să nu aibă perspective unice pe tendințe industrie.",
+    challenge4Impact: "Impact: Oportunitate construire încredere pierdută; avantaj angajare/finanțare slab; vulnerabil la influență competitor pe narativ",
+    methodologyTitle: "Metodologie: 4 Piloni ai Strategiei Brand",
+    method1Title: "Poziționare Brand și Definiție Piață",
+    method1Text: "Am efectuat cercetare adâncă clienți: interviuri cu 30+ clienți și deal-uri pierdute, analiză competitori, analiză tendințe piață. Am definit poziționare nouă: \"Sistemul de operare pentru enterprise mid-market\" (diferențiere clară). Am pozionat compania ca creator de categorie în \"Enterprise Operations Intelligence.\" Am creat narativ: \"Viitorul aparține enterprise-urilor care pot prevedea și preveni eșecuri operaționale.\"",
+    method2Title: "Segmentare Piață Țintă și Buyer Personas",
+    method2Text: "Am analizat date clienți: mărime venit, industrie, maturitate companie, adoptare produs, rate retenție, ROI, venit expansiune. Am identificat ideal customer profile: mid-market (€100M-1B venit), fabrică/servicii financiare, cumpărători risk operațional-focusați. Am creat 4 personas cumpărător detaliate cu motivații, pain point-uri, proces cumparare. Am aliniat vânzări și marketing pe ICP vs. alte segmente (nu urmări).",
+    method3Title: "Program Thought Leadership Executive",
+    method3Text: "Am poziționat CEO ca expert industrie pe \"Enterprise Operations Resilience.\" Am asigurat 8 implicări vorbire la conferințe tier-1 (Gartner, summit-uri industrie). Am publicat 12 piese opinie în publicații majore. Am construit prezență CEO social: LinkedIn crescut de la 2K la 85K followers (perspective industrie convingătoare). Prezentat în 15 mențiuni media. Am creat strategie vizibilitate executive: CEO ca voce credibilă pe tendințe industrie.",
+    method4Title: "Activare Integrată Brand și Marketing",
+    method4Text: "Am reîmprospătat identitatea vizuală: logo nou, paletă culori, redesign website reflectând promesa brand. Am actualizat marketing tot: conținut website, materiale vânzări, studii de caz, anunțuri, template-uri email. Am lansat campanie integrată: \"Era Enterprise Operations Intelligence.\" Am anunțat pe LinkedIn, Google, conținut sponsorizat. Am găzduit seria webinar \"Enterprise Operations Intelligence\" cu clienți și analiști.",
+    chart1Title: "1. Creștere Conștientizare Brand Pe 12 Luni",
+    chart1Subtitle: "Conștientizare brand neajutată pe segment piață țintă",
+    chart2Title: "2. Impact Cost Achiziție Client și LTV",
+    chart2Subtitle: "Îmbunătățire CAC și rație LTV/CAC cu poziționare mai bună",
+    chart3Title: "3. Calitate Pipeline Vânzări și Conversie",
+    chart3Subtitle: "Îmbunătățire în leads calificați de vânzări și rate închidere",
+    brandTimeline: "12% → 68% conștientizare",
+    baselineCac: "CAC Inițial",
+    improvedCac: "CAC Luna 6",
+    optimizedCac: "CAC Final",
+    ltvratio: "Rație LTV/CAC",
+    baseline: "Inițial",
+    final: "Final (+320%)",
+    leads: "MQLs",
+    qualified: "SQLs",
+    customers: "Clienți",
+    resultsTitle: "Rezultate Detaliate",
+    metric: "Metrică",
+    baseline: "Inițial",
+    final: "Final",
+    impact: "Impact",
+    brandAwareness: "Conștientizare Brand Neajutată",
+    shareOfVoice: "Cotă de Voce",
+    sqlsMonthly: "Leads Calificați de Vânzări Lunari",
+    salesCycle: "Ciclu Mediu Vânzări",
+    fundingRaised: "Finanțare Series B Strânsă",
+    insightsTitle: "8 Perspective Strategice",
+    insight1Title: "Poziționare Permite Preț Premium",
+    insight1Text: "Poziționare clară a permis creștere preț medie 22% fără rezistență client. Clienții au văzut diferențiere clară și valoare unică. Elasticitate preț s-a inversat—preț mai mare = valoare și calitate percepută mai mare.",
+    insight2Title: "Vizibilitate Executive e Avantaj Competitiv",
+    insight2Text: "Implicări vorbire CEO și acoperire media au generat 35% din leads calificați. Executivii vizibili la conferințe = clienți și investitori cred perspectiva companiei pe direcție industrială.",
+    insight3Title: "Focus pe ICP Reduce CAC Dramatic",
+    insight3Text: "Focus vânzări pe ideal customer profile a redus CAC de la €18K la €8.5K (-53%). Țintire strânsă atrage clienți potrivire mai bună care cumpără mai rapid și se extind mai mult. Venit expansiune a crescut 28%.",
+    insight4Title: "Brand Influențează Încrederea Investitor",
+    insight4Text: "Evaluare Series B a crescut la €45M din estimat €17M (salt 165%). Putere brand, poziționare piață, și vizibilitate executive au fost factori critici investitori au citat în term sheet-uri.",
+    insight5Title: "Definiție Categorie Accelerează Creștere",
+    insight5Text: "Becoming cunoscut ca lider în \"Enterprise Operations Intelligence\" a scurtat cicluri vânzări (145 → 92 zile). Prospecții auto-selectate bazate pe potrivire categorie. Eficiență marketing a crescut 2,4x.",
+    insight6Title: "Narativ Atrage Talent Top",
+    insight6Text: "Cu poziționare clară și thought leadership, angajare a devenit mai ușoară. Aplicații la roluri deschise au crescut 180%. Candidații vroiau să lucreze pentru companie care definește categoria, nu doar \"construiește software.\"",
+    insight7Title: "Răspuns Competitori Validează Strategie",
+    insight7Text: "În 6 luni, 3 competitori au adoptat limbaj poziționare similar (validare industrie). Fiind primeiro a deține naraativul a dat avantaj competitiv—competitorii perceput ca urmărind, nu conducând.",
+    insight8Title: "Brand Compune Valoare Viață Client",
+    insight8Text: "Brand puternic a redus churn (98% → 99,2%), a crescut venit expansiune (+28%), a redus costuri suport (-18%). Clienți mai buni (ICP-focusați) sunt clienți LTV mai mare.",
+    toolsTitle: "Instrumente și Cadre Utilizate",
+    toolsIntro: "Stivă completă de tehnologie strategie brand și poziționare:",
+    quoteText: "\"SPM Grup a luat compania de la vendor software generic la liderul de categorie în Enterprise Operations Intelligence. Conștientizarea brandului a mers de la 12% la 68%. Ciclurile de vânzări au scăzut 37%. Am strâns Series B la evaluare €45M cu investitorii citând brandul și poziționarea noastră ca puterii competitive cheie. Aceasta nu era doar o rebranding—a fost o transformare de afaceri.\"",
+    quoteAuthor: "CEO, Platformă B2B SaaS",
+    quoteRole: "Post-Anunț Series B",
+    ctaTitle: "Gata să Transformi Brand-ul și Poziția de Piață?",
+    ctaText: "Avem un cadru dovedit pentru strategie brand, poziționare, și vizibilitate executive care accelerează creștere și încredere investitor.",
+    ctaButton: "Programează Atelierul Strategie Brand"
+  },
+  en: {
+    backLink: "← Back to Portfolio",
+    title: "Brand Strategy and Market Positioning Transformation",
+    subtitle: "For a Mid-Market B2B SaaS Company",
+    tagline: "How we repositioned a generic tech company into a category-defining brand, growing brand awareness from 12% to 68% market penetration, increasing sales-qualified leads by 320%, and raising Series B funding at €45M valuation.",
+    executiveSummary: "Executive Summary",
+    brandAwareness: "Brand Awareness",
+    sqlGrowth: "SQL Growth",
+    fundingAnnouncement: "Series B Funding",
+    brandValue: "Brand Value Inc.",
+    marketShare: "Market Share",
+    timeline: "Timeline",
+    contextTitle: "Project Context",
+    contextText: "A fast-growing B2B SaaS company with strong product and 40% YoY growth faced a critical market challenge: perceived as another generic enterprise software vendor with no clear differentiation. Despite excellent retention (98%) and product-market fit, customer acquisition was expensive and competitive. Brand value didn't reflect business performance. Challenge: reposition company as category innovator to accelerate growth, attract enterprise customers, and support upcoming Series B funding round.",
+    challengesTitle: "Deep Strategic Challenges",
+    challenge1Title: "Generic Positioning and Brand Invisibility",
+    challenge1Text: "Company described itself: \"Enterprise software platform for operational efficiency.\" Competitors used identical messaging. No clear why customers should choose this company. Brand awareness: only 12% in target market. Share of voice: 2-3% against competitors. Leadership team had no visible thought leadership presence.",
+    challenge1Impact: "Impact: Customers default to known vendors; hard to justify premium pricing; expensive customer acquisition",
+    challenge2Title: "Weak Narrative and Unclear Value Story",
+    challenge2Text: "Company had strong product, great retention, growing revenue—but no compelling narrative explaining \"why this company will win.\" Investors wanted to understand: What category are you defining? What's unique? Why now? Company couldn't answer with conviction.",
+    challenge2Impact: "Impact: Series B fundraising difficult; valuation pressure; hard to attract top talent who want clear mission",
+    challenge3Title: "Unfocused Customer Target and Messaging",
+    challenge3Text: "Sales team tried to sell to \"any enterprise company.\" Marketing messaging was broad platitudes. No clear buyer persona, industry focus, or company size targeting. Led to low-fit customer acquisition, high support costs, extended sales cycles, mixed customer success outcomes.",
+    challenge3Impact: "Impact: CAC high (€18K), LTV/CAC ratio weak (2.1x), customer quality inconsistent, retention suffering in wrong segments",
+    challenge4Title: "No Thought Leadership or Executive Visibility",
+    challenge4Text: "CEO and leadership team had no public profile: no speaking engagements, no published opinions, no social media presence. Competitors' executives visible at conferences, quoted in press, perceived as industry experts. Company appeared to have no unique perspective on industry trends.",
+    challenge4Impact: "Impact: Lost trust-building opportunity; weak hiring/fundraising advantage; vulnerable to competitor influence over narrative",
+    methodologyTitle: "Methodology: 4 Pillars of Brand Strategy",
+    method1Title: "Brand Positioning and Market Definition",
+    method1Text: "Conducted deep customer research: interviews with 30+ customers and lost deals, competitor analysis, market trend analysis. Defined new positioning: \"The operating system for mid-market enterprises\" (clear differentiation). Positioned company as category creator in \"Enterprise Operations Intelligence.\" Created narrative: \"The future belongs to enterprises that can predict and prevent operational failures.\"",
+    method2Title: "Target Market Segmentation and Buyer Personas",
+    method2Text: "Analyzed customer data: revenue size, industry, company maturity, product adoption, retention rates, ROI, expansion revenue. Identified ideal customer profile: mid-market (€100M-1B revenue), manufacturing/financial services, operational risk-focused buyers. Created 4 detailed buyer personas with motivations, pain points, buying process. Aligned sales and marketing on ICP vs. other segments (don't pursue).",
+    method3Title: "Executive Thought Leadership Program",
+    method3Text: "Positioned CEO as industry expert on \"Enterprise Operations Resilience.\" Secured 8 speaking engagements at tier-1 conferences (Gartner, industry summits). Published 12 opinion pieces in major publications. Built CEO social presence: LinkedIn grew from 2K to 85K followers (compelling industry insights). Featured in 15 media mentions. Created executive visibility strategy: CEO as credible voice on industry trends.",
+    method4Title: "Integrated Brand and Marketing Activation",
+    method4Text: "Refreshed visual identity: new logo, color palette, website redesign reflecting brand promise. Updated all marketing: website content, sales collateral, case studies, ads, email templates. Launched integrated campaign: \"The Era of Enterprise Operations Intelligence.\" Advertised on LinkedIn, Google, sponsored content. Hosted \"Enterprise Operations Intelligence\" webinar series with customers and analysts.",
+    chart1Title: "1. Brand Awareness Growth Over 12 Months",
+    chart1Subtitle: "Unaided brand awareness in target market segment",
+    chart2Title: "2. Customer Acquisition Cost and LTV Impact",
+    chart2Subtitle: "CAC and LTV/CAC ratio improvement with better positioning",
+    chart3Title: "3. Sales Pipeline Quality and Conversion",
+    chart3Subtitle: "Improvement in sales-qualified leads and close rates",
+    brandTimeline: "12% → 68% awareness",
+    baselineCac: "CAC Baseline",
+    improvedCac: "CAC Month 6",
+    optimizedCac: "CAC Final",
+    ltvratio: "LTV/CAC Ratio",
+    baseline: "Baseline",
+    final: "Final (+320%)",
+    leads: "MQLs",
+    qualified: "SQLs",
+    customers: "Customers",
+    resultsTitle: "Detailed Results",
+    metric: "Metric",
+    baseline: "Baseline",
+    final: "Final",
+    impact: "Impact",
+    brandAwareness: "Unaided Brand Awareness",
+    shareOfVoice: "Share of Voice",
+    sqlsMonthly: "Monthly Sales-Qualified Leads",
+    salesCycle: "Average Sales Cycle",
+    fundingRaised: "Series B Funding Raised",
+    insightsTitle: "8 Strategic Insights",
+    insight1Title: "Positioning Enables Premium Pricing",
+    insight1Text: "Clear positioning allowed 22% average price increase without customer resistance. Customers saw clear differentiation and unique value. Price elasticity inverted—higher price = higher perceived value and quality.",
+    insight2Title: "Executive Visibility is Competitive Advantage",
+    insight2Text: "CEO speaking engagements and media coverage generated 35% of qualified leads. Executives visible at conferences = customers and investors trust the company's perspective on industry direction.",
+    insight3Title: "Focus on ICP Reduces CAC Dramatically",
+    insight3Text: "Focusing sales on ideal customer profile reduced CAC from €18K to €8.5K (-53%). Tight targeting attracts better-fit customers who buy faster and expand more. Expansion revenue increased 28%.",
+    insight4Title: "Brand Influences Investor Confidence",
+    insight4Text: "Series B valuation increased to €45M from estimated €17M (165% jump). Brand strength, market positioning, and executive visibility were critical factors investors cited in term sheets.",
+    insight5Title: "Category Definition Accelerates Growth",
+    insight5Text: "Becoming known as the leader in \"Enterprise Operations Intelligence\" shortened sales cycles (145 → 92 days). Prospects self-selected based on category fit. Marketing efficiency improved 2.4x.",
+    insight6Title: "Narrative Attracts Top Talent",
+    insight6Text: "With clear positioning and thought leadership, hiring became easier. Applications to open roles increased 180%. Candidates wanted to work for company defining the category, not just \"building software.\"",
+    insight7Title: "Competitor Response Validates Strategy",
+    insight7Text: "Within 6 months, 3 competitors adopted similar positioning language (industry validation). Being first to own the narrative gave competitive moat—competitors perceived as following, not leading.",
+    insight8Title: "Brand Compounds Customer Lifetime Value",
+    insight8Text: "Strong brand reduced churn (98% → 99.2%), increased expansion revenue (+28%), reduced support costs (-18%). Better customers (ICP-focused) are higher LTV customers.",
+    toolsTitle: "Tools & Frameworks Used",
+    toolsIntro: "Complete brand strategy and positioning technology stack:",
+    quoteText: "\"SPM Grup took our company from a generic software vendor to the category leader in Enterprise Operations Intelligence. Brand awareness went from 12% to 68%. Sales cycles dropped 37%. We raised Series B at €45M valuation with investors citing our brand and positioning as key competitive strengths. This wasn't just a rebranding—it was a business transformation.\"",
+    quoteAuthor: "CEO, B2B SaaS Platform",
+    quoteRole: "Post-Series B Announcement",
+    ctaTitle: "Ready to Transform Your Brand and Market Position?",
+    ctaText: "We have a proven framework for brand strategy, positioning, and executive visibility that accelerates growth and investor confidence.",
+    ctaButton: "Schedule Brand Strategy Workshop"
+  }
+};
+
+function switchLanguage(lang) {
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
+
+  document.querySelectorAll('[data-key]').forEach(element => {
+    const key = element.getAttribute('data-key');
+    if (translations[lang][key]) {
+      element.textContent = translations[lang][key];
+    }
+  });
+
+  document.documentElement.lang = lang;
+  localStorage.setItem('preferredLanguage', lang);
+}
+
+window.addEventListener('DOMContentLoaded', function() {
+  const savedLang = localStorage.getItem('preferredLanguage') || 'ro';
+  switchLanguage(savedLang);
+});
+</script>
+
+</body>
+</html>
