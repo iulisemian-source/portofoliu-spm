@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Pricing Strategy - Premium Case Study | SPM Grup</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #ffffff; color: #1a1a1a; line-height: 1.6; overflow-x: hidden; }
+    
+    .container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+    
+    /* HEADER */
+    header { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 3rem 1rem; text-align: center; position: relative; overflow: hidden; margin-bottom: 2rem; }
+    header::before { content: ''; position: absolute; top: -50%; right: -20%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(170, 138, 52, 0.15) 0%, transparent 70%); border-radius: 50%; }
+    
+    .header-content { position: relative; z-index: 2; }
+    h1 { font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 700; margin-bottom: 0.5rem; line-height: 1.2; }
+    .subtitle { font-size: clamp(1rem, 3vw, 1.2rem); color: #aa8a34; font-weight: 600; margin-bottom: 1rem; }
+    .tagline { font-size: clamp(0.9rem, 2.5vw, 1.05rem); color: #ddd; line-height: 1.7; max-width: 700px; margin: 0 auto; }
+    
+    a.back-link { display: inline-block; color: #aa8a34; text-decoration: none; font-weight: 600; margin-bottom: 2rem; font-size: 0.95rem; }
+    a.back-link:hover { text-decoration: underline; }
+    
+    /* HEADINGS */
+    h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 1.5rem; margin-top: 2.5rem; padding-bottom: 0.8rem; border-bottom: 3px solid #aa8a34; }
+    h3 { font-size: clamp(1.1rem, 2.5vw, 1.3rem); font-weight: 700; color: #1a1a1a; margin-top: 1.5rem; margin-bottom: 1rem; }
+    
+    /* EXECUTIVE SUMMARY */
+    .executive-summary { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .summary-item { background: white; padding: 1rem; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .summary-label { font-size: 0.75rem; text-transform: uppercase; color: #999; font-weight: 700; letter-spacing: 0.5px; }
+    .summary-value { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; color: #aa8a34; margin-top: 0.5rem; }
+    
+    /* CHALLENGE CARDS */
+    .challenges-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin: 2rem 0; }
+    .challenge-card { background: white; border: 2px solid #e0e0e0; border-left: 5px solid #aa8a34; padding: 1.5rem; border-radius: 6px; transition: all 0.3s; }
+    .challenge-card:hover { border-color: #aa8a34; box-shadow: 0 8px 16px rgba(170, 138, 52, 0.1); transform: translateY(-2px); }
+    .challenge-icon { font-size: 1.8rem; margin-bottom: 0.8rem; }
+    .challenge-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 1rem; }
+    .challenge-text { font-size: 0.9rem; color: #666; line-height: 1.6; }
+    .challenge-impact { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e0e0e0; font-size: 0.8rem; color: #999; font-weight: 600; }
+    
+    /* METHODOLOGY */
+    .methodology-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .methodology-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+    .method-card { background: white; padding: 1.2rem; border-radius: 6px; border: 1px solid #e0e0e0; }
+    .method-number { font-size: clamp(1.8rem, 4vw, 2.2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .method-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.8rem; font-size: 0.95rem; }
+    .method-text { font-size: 0.85rem; color: #666; line-height: 1.5; margin-bottom: 1rem; }
+    .method-tools { font-size: 0.75rem; color: #999; padding: 0.8rem; background: #f5f5f5; border-radius: 4px; border-left: 3px solid #aa8a34; }
+    
+    /* CHARTS */
+    .chart-container { background: white; border: 1px solid #e0e0e0; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); overflow-x: auto; }
+    .chart-title { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; color: #1a1a1a; margin-bottom: 1rem; }
+    .chart-subtitle { font-size: 0.8rem; color: #999; margin-bottom: 1rem; }
+    svg { width: 100%; height: auto; min-height: 250px; }
+    
+    /* INSIGHTS */
+    .insights-section { background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%); color: white; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .insights-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .insight-card { background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(170, 138, 52, 0.3); padding: 1.2rem; border-radius: 6px; backdrop-filter: blur(10px); }
+    .insight-number { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700; color: #aa8a34; margin-bottom: 0.5rem; }
+    .insight-title { font-weight: 700; margin-bottom: 0.6rem; font-size: 0.9rem; }
+    .insight-text { font-size: 0.8rem; line-height: 1.5; color: #ddd; }
+    
+    /* TOOLS & FRAMEWORKS */
+    .tools-section { background: #f8f8f8; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-top: 1.5rem; }
+    .tool-card { background: white; padding: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .tool-name { font-weight: 700; color: #1a1a1a; margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .tool-purpose { font-size: 0.8rem; color: #666; }
+    
+    /* RISK MANAGEMENT */
+    .risk-section { border-left: 5px solid #aa8a34; padding: 1.5rem; background: #f8f8f8; border-radius: 6px; margin: 2rem 0; }
+    .risk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; margin-top: 1.5rem; }
+    .risk-item { background: white; padding: 1rem; border-radius: 6px; }
+    .risk-label { font-weight: 700; color: #1a1a1a; margin-bottom: 0.4rem; font-size: 0.9rem; }
+    .risk-mitigation { font-size: 0.85rem; color: #666; line-height: 1.5; }
+    
+    /* RESULTS TABLE */
+    .results-table { width: 100%; border-collapse: collapse; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-radius: 8px; overflow: hidden; font-size: 0.9rem; }
+    .results-table thead { background: #1a1a1a; color: white; }
+    .results-table th { padding: 1rem; text-align: left; font-weight: 700; font-size: 0.85rem; border-bottom: 2px solid #aa8a34; }
+    .results-table td { padding: 0.8rem 1rem; border-bottom: 1px solid #e0e0e0; }
+    .results-table tr:nth-child(even) { background: #f8f8f8; }
+    .results-table tr:hover { background: #f0f0f0; }
+    .metric-positive { color: #aa8a34; font-weight: 700; }
+    .metric-label { font-size: 0.75rem; color: #999; }
+    
+    /* LESSONS LEARNED */
+    .lessons-section { background: linear-gradient(135deg, #f8f8f8 0%, #f0f0f0 100%); padding: 1.5rem; border-radius: 8px; margin: 2rem 0; }
+    .lesson-item { background: white; padding: 1.2rem; margin-bottom: 1rem; border-radius: 6px; border-left: 4px solid #aa8a34; }
+    .lesson-title { font-weight: 700; color: #1a1a1a; margin-bottom: 0.5rem; font-size: 0.95rem; }
+    .lesson-text { font-size: 0.85rem; color: #666; line-height: 1.6; }
+    
+    /* QUOTE */
+    .quote-section { background: white; border-left: 5px solid #aa8a34; border-radius: 8px; padding: 1.5rem; margin: 2rem 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .quote-text { font-size: clamp(1rem, 2vw, 1.15rem); font-style: italic; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.7; }
+    .quote-author { font-weight: 700; color: #aa8a34; font-size: 0.9rem; }
+    .quote-role { font-size: 0.8rem; color: #999; }
+    
+    /* CTA SECTION */
+    .cta-section { background: linear-gradient(135deg, #aa8a34 0%, #8b6e28 100%); color: white; padding: 2rem 1.5rem; border-radius: 8px; text-align: center; margin: 3rem 0; }
+    .cta-title { font-size: clamp(1.3rem, 3vw, 1.8rem); font-weight: 700; margin-bottom: 1rem; }
+    .cta-text { font-size: clamp(0.9rem, 2vw, 1.05rem); margin-bottom: 1.5rem; line-height: 1.6; }
+    .cta-btn { display: inline-block; background: #1a1a1a; color: white; padding: 0.9rem 2rem; text-decoration: none; font-weight: 700; border-radius: 6px; transition: all 0.3s; font-size: 0.95rem; border: none; cursor: pointer; }
+    .cta-btn:hover { background: #2a2a2a; transform: translateY(-2px); box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+    
+    /* FOOTER */
+    footer { background: #1a1a1a; color: #ccc; padding: 2rem 1rem; text-align: center; font-size: 0.85rem; margin-top: 3rem; border-top: 2px solid #aa8a34; }
+    footer strong { color: #aa8a34; }
+    
+    /* UTILITY */
+    p { margin-bottom: 1rem; font-size: 0.95rem; }
+    ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.6rem; color: #666; line-height: 1.6; font-size: 0.95rem; }
+    
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 1024px) {
+      .container { padding: 0 1rem; }
+      header { padding: 2.5rem 1rem; }
+      .challenges-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+      .methodology-grid { grid-template-columns: repeat(2, 1fr); }
+      .insights-grid { grid-template-columns: repeat(2, 1fr); }
+      .tools-grid { grid-template-columns: repeat(2, 1fr); }
+      .summary-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    
+    @media (max-width: 768px) {
+      .container { padding: 0 0.8rem; }
+      header { padding: 2rem 0.8rem; margin-bottom: 1.5rem; }
+      h1 { font-size: 1.6rem; }
+      .subtitle { font-size: 1rem; }
+      h2 { font-size: 1.3rem; margin-top: 2rem; }
+      h3 { font-size: 1rem; }
+      
+      .executive-summary { padding: 1rem; margin: 1.5rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+      .summary-item { padding: 0.8rem; }
+      .summary-label { font-size: 0.7rem; }
+      .summary-value { font-size: 1.4rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .challenge-card { padding: 1.2rem; }
+      .challenge-title { font-size: 0.95rem; }
+      .challenge-text { font-size: 0.85rem; }
+      
+      .methodology-section { padding: 1.2rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .method-card { padding: 1rem; }
+      .method-title { font-size: 0.9rem; }
+      .method-text { font-size: 0.8rem; }
+      
+      .chart-container { padding: 1rem; }
+      svg { min-height: 200px; }
+      
+      .insights-section { padding: 1.2rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .insight-card { padding: 1rem; }
+      .insight-title { font-size: 0.85rem; }
+      .insight-text { font-size: 0.75rem; }
+      
+      .tools-section { padding: 1.2rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .tool-card { padding: 0.9rem; }
+      .tool-name { font-size: 0.85rem; }
+      .tool-purpose { font-size: 0.75rem; }
+      
+      .risk-section { padding: 1.2rem; }
+      .risk-grid { grid-template-columns: 1fr; gap: 1rem; }
+      .risk-item { padding: 0.9rem; }
+      
+      .results-table { font-size: 0.8rem; }
+      .results-table th { padding: 0.8rem; }
+      .results-table td { padding: 0.6rem 0.8rem; }
+      
+      .lessons-section { padding: 1.2rem; }
+      .lesson-item { padding: 1rem; }
+      .lesson-title { font-size: 0.9rem; }
+      .lesson-text { font-size: 0.8rem; }
+      
+      .quote-section { padding: 1.2rem; }
+      .quote-text { font-size: 1rem; }
+      .quote-author { font-size: 0.85rem; }
+      
+      .cta-section { padding: 1.5rem 1rem; margin: 2rem 0; }
+      .cta-title { font-size: 1.4rem; }
+      .cta-text { font-size: 0.95rem; }
+      .cta-btn { padding: 0.8rem 1.5rem; font-size: 0.9rem; }
+      
+      footer { padding: 1.5rem 1rem; font-size: 0.8rem; }
+    }
+    
+    @media (max-width: 480px) {
+      .container { padding: 0 0.7rem; }
+      header { padding: 1.5rem 0.7rem; }
+      h1 { font-size: 1.4rem; margin-bottom: 0.3rem; }
+      .subtitle { font-size: 0.9rem; }
+      .tagline { font-size: 0.85rem; }
+      a.back-link { font-size: 0.85rem; margin-bottom: 1.5rem; }
+      
+      h2 { font-size: 1.2rem; margin-top: 1.5rem; margin-bottom: 1rem; padding-bottom: 0.6rem; }
+      h3 { font-size: 0.95rem; }
+      
+      .executive-summary { padding: 0.9rem; margin: 1rem 0; }
+      .summary-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+      .summary-item { padding: 0.7rem; }
+      .summary-label { font-size: 0.65rem; }
+      .summary-value { font-size: 1.2rem; }
+      
+      .challenges-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .challenge-card { padding: 1rem; border-left: 4px solid #aa8a34; }
+      .challenge-icon { font-size: 1.5rem; }
+      .challenge-title { font-size: 0.9rem; }
+      .challenge-text { font-size: 0.8rem; }
+      .challenge-impact { font-size: 0.75rem; }
+      
+      .methodology-section { padding: 1rem; }
+      .methodology-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .method-card { padding: 0.9rem; }
+      .method-number { font-size: 1.6rem; }
+      .method-title { font-size: 0.85rem; }
+      .method-text { font-size: 0.75rem; }
+      .method-tools { font-size: 0.7rem; }
+      
+      .chart-container { padding: 0.8rem; margin: 1.5rem 0; }
+      svg { min-height: 150px; }
+      
+      .insights-section { padding: 1rem; }
+      .insights-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .insight-card { padding: 0.9rem; }
+      .insight-number { font-size: 1.4rem; }
+      .insight-title { font-size: 0.8rem; }
+      .insight-text { font-size: 0.7rem; }
+      
+      .tools-section { padding: 1rem; }
+      .tools-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .tool-card { padding: 0.8rem; }
+      
+      .risk-section { padding: 1rem; }
+      .risk-grid { grid-template-columns: 1fr; gap: 0.8rem; }
+      .risk-item { padding: 0.8rem; }
+      .risk-label { font-size: 0.85rem; }
+      
+      .results-table { font-size: 0.75rem; }
+      .results-table th, .results-table td { padding: 0.5rem; }
+      
+      .lessons-section { padding: 1rem; }
+      .lesson-item { padding: 0.9rem; margin-bottom: 0.8rem; }
+      .lesson-title { font-size: 0.85rem; }
+      
+      .quote-section { padding: 1rem; }
+      .quote-text { font-size: 0.9rem; }
+      
+      .cta-section { padding: 1.2rem 0.8rem; margin: 1.5rem 0; }
+      .cta-title { font-size: 1.2rem; }
+      .cta-text { font-size: 0.9rem; }
+      .cta-btn { padding: 0.7rem 1.2rem; font-size: 0.85rem; }
+      
+      footer { padding: 1.2rem 0.7rem; font-size: 0.75rem; }
+      
+      p, li { font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+<a href="/" class="back-link">← Înapoi la Portofoliu</a>
+
+<header>
+  <div class="header-content">
+    <h1>Auditarea și Optimizarea Strategiei de Pricing</h1>
+    <div class="subtitle">Pentru o Platformă SaaS de Colaborare</div>
+    <p class="tagline">Cum am crescut veniturile cu 35% printr-o strategie de pricing optimizată și diferențiată pentru 3 segmente de clienți.</p>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- EXECUTIVE SUMMARY -->
+<section class="executive-summary">
+  <h2 style="margin-top: 0; border: none; color: #1a1a1a;">Executive Summary</h2>
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="summary-label">Revenue Growth</div>
+      <div class="summary-value">+35%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">ARR Initial</div>
+      <div class="summary-value">250K EUR</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">ARR Final</div>
+      <div class="summary-value">337.5K EUR</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">ARPU Growth</div>
+      <div class="summary-value">+42%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Conversion +</div>
+      <div class="summary-value">+23%</div>
+    </div>
+    <div class="summary-item">
+      <div class="summary-label">Timeline</div>
+      <div class="summary-value">10 Săpt</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<h2>Contextul Proiectului</h2>
+<p>O platformă SaaS de colaborare stabilă de 3 ani cu 800 clienți activi și 250.000 EUR ARR se confruntă cu problema stagnării veniturilor. Modelul de pricing era elementar și nedifențiat: un singur nivel de 99 EUR/lună pentru toți clienții, indiferent de mărime sau use case. Problema acesta limitează scalabilitatea și lasă bani pe masă din segmentele premium și enterprise.</p>
+
+<!-- DEEP DIVE CHALLENGES -->
+<h2>Provocări Strategice Profunde</h2>
+
+<div class="challenges-grid">
+  <div class="challenge-card">
+    <div class="challenge-icon">💰</div>
+    <div class="challenge-title">Model de Pricing Elementar și Nedifențiat</div>
+    <div class="challenge-text">Un singur tier la 99 EUR/lună tratează toți clienții la fel, indiferent de valoare. SMB-urile și enterprise-urile plătesc același preț, care nu reflectă diferența de valoare. Rezultat: pierdere de revenue și friction la vânzări.</div>
+    <div class="challenge-impact">Impact: ~40% din enterprise prospects refuză să cumpere din cauza pricing-ului generic</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">📉</div>
+    <div class="challenge-title">Stagnare de Revenue și Problemă de Scalabilitate</div>
+    <div class="challenge-text">ARR pe ultimii 12 luni: crescut de la 0 la 250K (bun), dar apoi s-a plafonat. Deși clienții cresc, veniturile nu cresc cu aceeași viteză. Problema: nu avem mecanismă de upsell sau premium offerings.</div>
+    <div class="challenge-impact">Impact: Orice creștere de clienți = creștere liniară revenue, nu exponențială</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">📊</div>
+    <div class="challenge-title">LTV/CAC Ratio Slabă și Unit Economics Problematice</div>
+    <div class="challenge-text">LTV/CAC = 3.2x (target: 3x+), dar e calculată pe un singur year. Pe multi-year, situația se deteriorează. Churn de ~8%/an reduce LTV substanțial. Necesar: creștere ARPU și reducere churn.</div>
+    <div class="challenge-impact">Impact: Business nu e suficient de rentabil, nici SaaS metrics nu sunt sănătoase pentru scaling</div>
+  </div>
+  
+  <div class="challenge-card">
+    <div class="challenge-icon">🎯</div>
+    <div class="challenge-title">Neclaritate pe Segmentare și Packaging Optim</div>
+    <div class="challenge-text">Nu e clar care sunt segmentele profitabile (SMB vs Mid vs Enterprise). Care feature value justifică un tier mai scump? Cum packaghem features ca să maximizez perceived value la fiecare segment?</div>
+    <div class="challenge-impact">Impact: Orice strategie de pricing fără segmentare e guess work, nu science</div>
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<section class="methodology-section">
+  <h2 style="color: #1a1a1a; border-bottom-color: #1a1a1a; margin-top: 0;">Metodologie: 4 Piloni de Pricing Strategy</h2>
+  
+  <div class="methodology-grid">
+    <div class="method-card">
+      <div class="method-number">1</div>
+      <div class="method-title">Pricing Audit & Customer Segmentation</div>
+      <div class="method-text">Am analiza 800 clienți: dimensiune, use case, willingness to pay, churn patterns. Am identificat 3 segmente claire: Growth (500+ clienți, $150-500/yr), Professional (250 clienți, $1500-3000/yr), Enterprise (50 clienți, $5000-15000/yr).</div>
+      <div class="method-tools">Tools: SQL queries, Python analysis, survey tools, Typeform</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">2</div>
+      <div class="method-title">Value-Based Pricing Model Design</div>
+      <div class="method-text">Am construit 3 tiers cu feature differentiation: Growth ($99/mo, basic features), Professional ($349/mo, advanced features), Enterprise ($999+/mo, custom). Fiecare tier designed pe baza value perception și willingness to pay.</div>
+      <div class="method-tools">Tools: Van Westendorp price sensitivity analysis, Feature bundling, Buyer persona research</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">3</div>
+      <div class="method-title">Migration Strategy & Customer Mapping</div>
+      <div class="method-text">Am creat playbook pentru migrare graduală: existing clienți rămân la old pricing, new clienți pe new pricing. Enterprise prospects primesc custom quotes. Objective: minimize churn pe migration, maximize adoption pe new tiers.</div>
+      <div class="method-tools">Tools: Migration spreadsheet, CRM automation, Email campaigns</div>
+    </div>
+    
+    <div class="method-card">
+      <div class="method-number">4</div>
+      <div class="method-title">A/B Testing & Optimization Continuous</div>
+      <div class="method-text">Am rulat A/B tests pe landing page pricing, checkout flow, email copy. Am tested 5 variații de tiers (2, 3, 4 tiers). Am monirizat conversion rate, churn, ARPU weekly. Iterate based pe data.</div>
+      <div class="method-tools">Tools: Optimizely A/B testing, Google Analytics, Mixpanel analytics, Stripe webhook events</div>
+    </div>
+  </div>
+</section>
+
+<!-- CHARTS -->
+<div class="chart-container">
+  <h3 class="chart-title">1. Revenue per Pricing Tier - Stacked Bar Chart</h3>
+  <p class="chart-subtitle">Revenue contribution by tier (monthly)</p>
+  <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="280" fill="#f8f8f8"/>
+    <!-- Y-axis labels -->
+    <text x="20" y="235" font-size="9" fill="#666">0K</text>
+    <text x="15" y="135" font-size="9" fill="#666">15K</text>
+    <text x="15" y="35" font-size="9" fill="#666">30K</text>
+    <!-- Before bars -->
+    <rect x="50" y="180" width="60" height="55" fill="#aa8a34" opacity="0.9"/>
+    <text x="80" y="250" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="bold">Before</text>
+    <!-- After bars (stacked) -->
+    <rect x="170" y="140" width="60" height="40" fill="#aa8a34" opacity="0.9"/>
+    <rect x="170" y="100" width="60" height="40" fill="#aa8a34" opacity="0.7"/>
+    <rect x="170" y="50" width="60" height="50" fill="#aa8a34" opacity="0.5"/>
+    <text x="200" y="250" font-size="10" text-anchor="middle" fill="#1a1a1a" font-weight="bold">After</text>
+    <!-- Legend -->
+    <rect x="290" y="60" width="12" height="12" fill="#aa8a34" opacity="0.9"/>
+    <text x="310" y="68" font-size="9" fill="#1a1a1a">Growth Tier</text>
+    <rect x="290" y="85" width="12" height="12" fill="#aa8a34" opacity="0.7"/>
+    <text x="310" y="93" font-size="9" fill="#1a1a1a">Professional Tier</text>
+    <rect x="290" y="110" width="12" height="12" fill="#aa8a34" opacity="0.5"/>
+    <text x="310" y="118" font-size="9" fill="#1a1a1a">Enterprise Tier</text>
+    <!-- Before value -->
+    <text x="80" y="165" font-size="11" font-weight="bold" text-anchor="middle" fill="#aa8a34">20.8K</text>
+    <!-- After values -->
+    <text x="200" y="125" font-size="9" font-weight="bold" text-anchor="middle" fill="white">8.2K</text>
+    <text x="200" y="75" font-size="9" font-weight="bold" text-anchor="middle" fill="white">8.2K</text>
+    <text x="200" y="25" font-size="9" font-weight="bold" text-anchor="middle" fill="white">12.3K</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title">2. Customer Distribution by Tier - Pyramid</h3>
+  <p class="chart-subtitle">Customer segment distribution</p>
+  <svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="300" fill="#f8f8f8"/>
+    <!-- Enterprise (top) -->
+    <polygon points="250,30 280,100 220,100" fill="#aa8a34" opacity="0.5"/>
+    <text x="250" y="60" font-size="11" font-weight="bold" text-anchor="middle" fill="white">50 clienți</text>
+    <text x="250" y="75" font-size="9" text-anchor="middle" fill="white">Enterprise</text>
+    <!-- Professional (middle) -->
+    <polygon points="250,100 320,170 180,170" fill="#aa8a34" opacity="0.7"/>
+    <text x="250" y="140" font-size="11" font-weight="bold" text-anchor="middle" fill="white">250 clienți</text>
+    <text x="250" y="155" font-size="9" text-anchor="middle" fill="white">Professional</text>
+    <!-- Growth (bottom) -->
+    <polygon points="250,170 400,240 100,240" fill="#aa8a34" opacity="0.9"/>
+    <text x="250" y="210" font-size="12" font-weight="bold" text-anchor="middle" fill="white">500 clienți</text>
+    <text x="250" y="225" font-size="10" text-anchor="middle" fill="white">Growth Tier</text>
+    <!-- Total -->
+    <text x="250" y="270" font-size="11" font-weight="bold" text-anchor="middle" fill="#1a1a1a">Total: 800 clienți</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title">3. ARPU Growth by Tier - Waterfall Chart</h3>
+  <p class="chart-subtitle">Average Revenue Per User evolution</p>
+  <svg viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="280" fill="#f8f8f8"/>
+    <!-- Baseline ARPU -->
+    <rect x="50" y="160" width="80" height="60" fill="#aa8a34" opacity="0.9"/>
+    <text x="90" y="195" font-size="11" font-weight="bold" text-anchor="middle" fill="white">300 EUR</text>
+    <text x="90" y="235" font-size="9" text-anchor="middle" fill="#1a1a1a">Before</text>
+    <!-- Arrow -->
+    <line x1="150" y1="190" x2="180" y2="190" stroke="#aa8a34" stroke-width="2"/>
+    <polygon points="175,185 180,190 175,195" fill="#aa8a34"/>
+    <!-- After ARPU -->
+    <rect x="200" y="100" width="80" height="120" fill="#aa8a34" opacity="0.5"/>
+    <text x="240" y="165" font-size="11" font-weight="bold" text-anchor="middle" fill="#1a1a1a">427 EUR</text>
+    <text x="240" y="235" font-size="9" text-anchor="middle" fill="#1a1a1a">After</text>
+    <!-- Growth percentage -->
+    <text x="320" y="150" font-size="13" font-weight="bold" fill="#aa8a34">+42%</text>
+    <!-- Details -->
+    <text x="320" y="175" font-size="8" fill="#666">Growth: +30 EUR</text>
+    <text x="320" y="190" font-size="8" fill="#666">Prof: +85 EUR</text>
+    <text x="320" y="205" font-size="8" fill="#666">Ent: +190 EUR</text>
+  </svg>
+</div>
+
+<div class="chart-container">
+  <h3 class="chart-title">4. Pricing Conversion Rate - Heatmap</h3>
+  <p class="chart-subtitle">Conversion % by tier and customer segment</p>
+  <svg viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+    <rect width="500" height="250" fill="#f8f8f8"/>
+    <!-- Rows: Before, Growth, Prof, Ent -->
+    <!-- Before -->
+    <rect x="100" y="20" width="100" height="40" fill="#aa8a34" opacity="0.3"/>
+    <text x="150" y="48" font-size="10" font-weight="bold" text-anchor="middle" fill="#1a1a1a">3%</text>
+    <text x="40" y="48" font-size="9" fill="#666">Before</text>
+    <!-- Growth Tier -->
+    <rect x="100" y="70" width="100" height="40" fill="#aa8a34" opacity="0.9"/>
+    <text x="150" y="98" font-size="10" font-weight="bold" text-anchor="middle" fill="white">8%</text>
+    <text x="40" y="98" font-size="9" fill="#666">Growth</text>
+    <!-- Professional Tier -->
+    <rect x="100" y="120" width="100" height="40" fill="#aa8a34" opacity="0.7"/>
+    <text x="150" y="148" font-size="10" font-weight="bold" text-anchor="middle" fill="white">5%</text>
+    <text x="40" y="148" font-size="9" fill="#666">Professional</text>
+    <!-- Enterprise Tier -->
+    <rect x="100" y="170" width="100" height="40" fill="#aa8a34" opacity="0.5"/>
+    <text x="150" y="198" font-size="10" font-weight="bold" text-anchor="middle" fill="#1a1a1a">18%</text>
+    <text x="40" y="198" font-size="9" fill="#666">Enterprise</text>
+    <!-- Improvement label -->
+    <text x="280" y="100" font-size="11" font-weight="bold" fill="#aa8a34">+23% Overall</text>
+    <text x="280" y="120" font-size="8" fill="#666">Conversion Rate</text>
+  </svg>
+</div>
+
+<!-- RESULTS TABLE -->
+<h2>Rezultate Detaliate</h2>
+<table class="results-table">
+  <thead>
+    <tr>
+      <th>Metrica</th>
+      <th>Before</th>
+      <th>After</th>
+      <th>Delta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Annual Recurring Revenue</strong></td>
+      <td>250K EUR</td>
+      <td><span class="metric-positive">337.5K EUR</span></td>
+      <td><span class="metric-positive">+87.5K (+35%)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Average Revenue Per User</strong></td>
+      <td>300 EUR/year</td>
+      <td><span class="metric-positive">427 EUR/year</span></td>
+      <td><span class="metric-positive">+127 EUR (+42%)</span></td>
+    </tr>
+    <tr>
+      <td><strong>Conversion Rate (Free to Paid)</strong></td>
+      <td>3%</td>
+      <td><span class="metric-positive">3.69%</span></td>
+      <td><span class="metric-positive">+23%</span></td>
+    </tr>
+    <tr>
+      <td><strong>Churn Rate (Monthly)</strong></td>
+      <td>0.67% (8%/year)</td>
+      <td><span class="metric-positive">0.4% (4.8%/year)</span></td>
+      <td><span class="metric-positive">-40%</span></td>
+    </tr>
+    <tr>
+      <td><strong>LTV/CAC Ratio</strong></td>
+      <td>3.2x</td>
+      <td><span class="metric-positive">4.1x</span></td>
+      <td><span class="metric-positive">+28%</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- STRATEGIC INSIGHTS -->
+<section class="insights-section">
+  <h2 style="color: white; border-bottom-color: #aa8a34; margin-top: 0;">8 Strategic Insights - Pricing Mastery</h2>
+  
+  <div class="insights-grid">
+    <div class="insight-card">
+      <div class="insight-number">1</div>
+      <div class="insight-title">Segmentation First</div>
+      <div class="insight-text">Orice pricing strategy care nu e bazată pe segmentare e guess work. Noi am identificat 3 segmente clare, fiecare cu different willingness to pay și use cases.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">2</div>
+      <div class="insight-title">Value > Cost</div>
+      <div class="insight-text">Pricing based pe cost e suboptimal. Value-based pricing (ce value deliver) maximizeaza revenue. Enterprise segments pagesc 10x mai mult pentru feature set similar.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">3</div>
+      <div class="insight-title">3 Tiers Optimal</div>
+      <div class="insight-text">Am testat 2, 3, 4 tiers. 3 tiers e sweet spot: enough differentiation, nu overwhelm buyers. 4 tiers complexity outweighs benefits.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">4</div>
+      <div class="insight-title">Feature Bundling Keys</div>
+      <div class="insight-text">Nu e care features e mai scump. E care bundles de features create maximum perceived value difference. Enterprise e Enterprise + priority support + custom integrations.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">5</div>
+      <div class="insight-title">Anchoring Effect Powerful</div>
+      <div class="insight-text">Highest price tier e anchor. Enterprise la 999 EUR/mo makes Professional la 349 EUR/mo look like "good deal". Psychological pricing FTW.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">6</div>
+      <div class="insight-title">Migration Gradual Better</div>
+      <div class="insight-text">Existing customers keep old pricing, new ones get new pricing. Reduce friction, increase acceptance. Churn stay low, new revenue compounds.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">7</div>
+      <div class="insight-title">ARPU > Customer Count</div>
+      <div class="insight-text">Growing ARPU 42% beats growing customer count 50%. Lower CAC on high-value segments, higher LTV = better unit economics.</div>
+    </div>
+    
+    <div class="insight-card">
+      <div class="insight-number">8</div>
+      <div class="insight-title">Churn Reduction = Revenue</div>
+      <div class="insight-text">Optimizing pricing reduced churn 40%. Existing customers happier, retention improved. Churn reduction = direct revenue lift.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & FRAMEWORKS -->
+<section class="tools-section">
+  <h2 style="color: #1a1a1a; margin-top: 0;">Tools & Frameworks Utilizate</h2>
+  <p>Ecosystem-ul de tools și frameworks care au permis pricing strategy data-driven:</p>
+  
+  <div class="tools-grid">
+    <div class="tool-card">
+      <div class="tool-name">Van Westendorp Analysis</div>
+      <div class="tool-purpose">Price sensitivity & optimal pricing points</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Stripe Webhooks</div>
+      <div class="tool-purpose">Payment events tracking & revenue monitoring</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Optimizely A/B Testing</div>
+      <div class="tool-purpose">Landing page pricing A/B tests</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Google Analytics</div>
+      <div class="tool-purpose">Conversion funnel analysis & tracking</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Mixpanel Analytics</div>
+      <div class="tool-purpose">User behavior & feature adoption tracking</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">SQL + Python</div>
+      <div class="tool-purpose">Customer segmentation & cohort analysis</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Feature Bundling Matrix</div>
+      <div class="tool-purpose">Tier design & perceived value calc</div>
+    </div>
+    
+    <div class="tool-card">
+      <div class="tool-name">Unit Economics Model</div>
+      <div class="tool-purpose">LTV/CAC & profitability tracking</div>
+    </div>
+  </div>
+</section>
+
+<!-- RISK MANAGEMENT -->
+<section class="risk-section">
+  <h2 style="color: #1a1a1a; margin-top: 0; border-bottom: 3px solid #aa8a34;">Risk Management & Mitigation</h2>
+  
+  <div class="risk-grid">
+    <div class="risk-item">
+      <div class="risk-label">🚨 Risk: Customer churn din pricing change</div>
+      <div class="risk-mitigation">Mitigation: Grandfather existing customers la old pricing. Only new customers on new tiers. Reduce friction, increase acceptance.</div>
+    </div>
+    
+    <div class="risk-item">
+      <div class="risk-label">🚨 Risk: Wrong tier positioning</div>
+      <div class="risk-mitigation">Mitigation: Extensive customer interviews + willingness to pay surveys. A/B test multiple positioning strategies. Iterate based pe market feedback.</div>
+    </div>
+    
+    <div class="risk-item">
+      <div class="risk-label">🚨 Risk: Feature differentiation nu deliver perceived value</div>
+      <div class="risk-mitigation">Mitigation: Price increase must be accompanied by clear feature communication. Educational content, demo videos, case studies per tier.</div>
+    </div>
+    
+    <div class="risk-item">
+      <div class="risk-label">🚨 Risk: Competitors offer better pricing</div>
+      <div class="risk-mitigation">Mitigation: Value proposition > pricing. Focus on product differentiation, not race to bottom on price. Premium positioning for premium product.</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-section">
+  <div class="quote-text">"SPM Grup transformed our pricing strategy din guesswork în science. Rezultatele: +35% revenue, +42% ARPU, -40% churn. Aceasta e textbook pricing optimization executed perfectly."</div>
+  <div class="quote-author">CEO, SaaS Collaboration Platform</div>
+  <div class="quote-role">Post-Implementation Review</div>
+</div>
+
+<!-- LESSONS LEARNED -->
+<section class="lessons-section">
+  <h2 style="color: #1a1a1a; margin-top: 0;">Lessons Learned & Framework Transfer</h2>
+  
+  <div class="lesson-item">
+    <div class="lesson-title">1. Pricing E Strategic, Nu Operational</div>
+    <div class="lesson-text">Pricing decisions impact revenue, margin, unit economics, customer perception. Trebuie handled la strategic level, nu operational. Board-level discussion + data-driven framework.</div>
+  </div>
+  
+  <div class="lesson-item">
+    <div class="lesson-title">2. Segmentation E Foundation</div>
+    <div class="lesson-text">Nu putem optimiza pricing fără clarity pe segmente. Diferite segmente = diferite WTP, use cases, decision processes. One-size-fits-all pricing e suboptimal.</div>
+  </div>
+  
+  <div class="lesson-item">
+    <div class="lesson-title">3. Gradual Migration Reduce Risk</div>
+    <div class="lesson-text">Big bang pricing changes = customer churn. Gradual migration (existing customers keep old pricing) = low friction, higher adoption. Patience = higher net revenue.</div>
+  </div>
+  
+  <div class="lesson-item">
+    <div class="lesson-title">4. Data + Psychology = Optimal Pricing</div>
+    <div class="lesson-text">Use data (WTP surveys, analytics) + psychology (anchoring, bundling, FOMO) to design pricing. Balance scientific + behavioral approaches.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="cta-title">Interesat de Pricing Strategy Optimization?</div>
+  <div class="cta-text">Avem proven framework pentru pricing audit, customer segmentation, tier design, at A/B testing. Maximize revenue fără churn.</div>
+  <a href="tel:+40756775675" class="cta-btn">Contactează-ne Acum</a>
+</div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 <strong>SPM Grup</strong> | Transformări Strategice Premium</p>
+  <p>hello@spmgrup.ro | +40 756 775 675</p>
+</footer>
+
+</body>
+</html>
